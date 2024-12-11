@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static "styles.css" %}">
+</head>
+{% block content %} 
+<body>
+    <header>
+        <h1>InterIm Assistant</h1>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li>
+                    <a href="#">Designs</a>
+                    <ul class="dropdown">
+                        <li><a href="modern.html">Modern</a></li>
+                        <li><a href="classic.html">Classic</a></li>
+                        <li><a href="minimalist.html">Minimalist</a></li>
+                        <li><a href="bohemian.html">Bohemian</a></li>
+                    </ul>
+                </li>
+                <li><a href="community.html">Community Discussions</a></li>
+                <li><a href="recommendations.html">Product Recommendations</a></li>
+                <li><a href="quiz.html">Design Quiz</a></li>
+                <li><a href="budget-calculator.html">Budget Calculator</a></li>
+                <li><a href="trends.html">Design Trends</a></li>
+            </ul>
+        </nav>
+    </header>
+    </body>
+    {% endblock  %}
+
+</html>
