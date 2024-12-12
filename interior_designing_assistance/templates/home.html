@@ -1,35 +1,6 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interior Design Home</title>
-    <link rel="stylesheet" href="{% static "styles.css" %}">
-</head>
-<body>
-    <header>
-        <h1>InterIm Assistant</h1>
-        <nav>
-            <ul>
-                <li><a href="home.html">Home</a></li>
-                <li>
-                    <a href="#">Designs</a>
-                    <ul class="dropdown">
-                        <li><a href="modern.html">Modern</a></li>
-                        <li><a href="classic.html">Classic</a></li>
-                        <li><a href="minimalist.html">Minimalist</a></li>
-                        <li><a href="bohemian.html">Bohemian</a></li>
-                    </ul>
-                </li>
-                <li><a href="community.html">Community Discussions</a></li>
-                <li><a href="recommendations.html">Product Recommendations</a></li>
-                <li><a href="quiz.html">Design Quiz</a></li>
-                <li><a href="budget-calculator.html">Budget Calculator</a></li>
-                <li><a href="trends.html">Design Trends</a></li>
-            </ul>
-        </nav>
-    </header>
+{% extends "base.html" %}
+{% block 'title' %}Home{% endblock  %}
+{% block 'content' %}
     <main>
         <section>
             <h2>Welcome to InterIm Assistant</h2>
@@ -44,27 +15,20 @@
     </main>
     <section class="features">
         <div class="feature">
-            <h3>Compare Colleges</h3>
-            <p>Get detailed comparisons of top colleges to make an informed decision.</p>
+            <h3>Sustainable Living Tips</h3>
+            <p>This feature provides users with eco-friendly design tips and etc. </p>
         </div>
         <div class="feature">
-            <h3>Top Interior Designers</h3>
-            <p>Discover courses tailored to your interests and career goals.</p>
+            <h3>Start Quiz</h3>
+            <p>Discover your unique interior design style with our fun and insightful quiz! </p>
         </div>
         <div class="feature">
             <h3>Expert Guidance</h3>
-            <p>Connect with experts to get advice on choosing the right path.</p>
+            <p>Receive personalized advice from professionals to help you make the best design decisions for your space. </p>
+        </div>
+        <div class="feature">
+            <h3>Top Interior Designers</h3>
+            <p>Discover the finest interior designers who can bring your vision to life with their creativity, expertise, and impeccable style. </p>
         </div>
     </section>
-    <footer>
-        <p class="para-two">&copy; 2024 InterIm Assistant. All rights reserved.</p>
-    </footer>
-    <div id="chatbot">
-        <button id="chatbot-toggle">Chat with us!</button>
-        <div id="chatbot-interface" class="collapsed">
-            <!-- Chatbot interface content -->
-        </div>
-    </div>
-    <script src="{% static 'script.js' %}"></script>
-</body>
-</html>
+    {% endblock  %}    

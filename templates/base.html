@@ -4,16 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>{% block 'title' %} Interior Design Home{% endblock  %}</title>
     <link rel="stylesheet" href="{% static "styles.css" %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
-{% block content %} 
 <body>
     <header>
         <h1>InterIm Assistant</h1>
         <nav>
             <ul>
-                <li><a href="home.html">Home</a></li>
+                <li><a href={% url 'home' %}>Home</a></li>
                 <li>
                     <a href="#">Designs</a>
                     <ul class="dropdown">
@@ -24,14 +24,43 @@
                     </ul>
                 </li>
                 <li><a href="community.html">Community Discussions</a></li>
-                <li><a href="recommendations.html">Product Recommendations</a></li>
+                <li>
+                    <a href="#">Product Recommendations</a>
+                    <ul class="dropdown">
+                        <li><a href="modern.html">Local Recommendations</a></li>
+                        <li><a href="classic.html">Online Recommendations</a></li>
+                    </ul>
+                </li>
                 <li><a href="quiz.html">Design Quiz</a></li>
                 <li><a href="budget-calculator.html">Budget Calculator</a></li>
                 <li><a href="trends.html">Design Trends</a></li>
+                
             </ul>
         </nav>
+        
+        <div class="profile-icon">
+            <a href="#" class="profile-link" id="profileButton">
+                <i class="fas fa-user-circle"></i>
+            </a>
+            <ul class="profile-dropdown" id="profileDropdown">
+                <li><a href={% url "login" %}>Login</a></li>
+                <li><a href="#">Manage Profiles</a></li>
+                <li><a href="#">My Account</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Sign Out</a></li>
+            </ul>
+        </div>
     </header>
-    </body>
-    {% endblock  %}
-
+    {% block 'content' %}{% endblock  %}
+    <footer>
+        <p class="para-two">&copy; 2024 InterIm Assistant. All rights reserved.</p>
+    </footer>
+    <div id="chatbot">
+        <button id="chatbot-toggle">Chat with us!</button>
+        <div id="chatbot-interface" class="collapsed">
+            <!-- Chatbot interface content -->
+        </div>
+    </div>
+    <script src="{% static 'script.js' %}"></script>
+</body>
 </html>
