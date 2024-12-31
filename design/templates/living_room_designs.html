@@ -9,6 +9,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Living Room Designs</title>
     <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+    <style>
+        .designs-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .design {
+            width: 250px; /* Reduced width for smaller boxes */
+            height: 250px; /* Reduced height for smaller boxes */
+            overflow: hidden;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .design a {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .design img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            transform: scale(1.2); /* Slight zoom out effect */
+        }
+
+        .design:hover img {
+            transform: scale(1.1); /* Zoom in a bit on hover */
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -16,23 +54,116 @@
     </header>
     <div class="designs-gallery">
         <div class="design">
-            <img src="{% static 'livingroom1.jpeg' %}" alt="Living Room Design 1">
-            <p>Description for Living Room Design 1</p>
+            <a href="https://www.home-designing.com/wp-content/uploads/2018/01/exposed-brick-walls-large-abstract-cool-living-rooms.jpg" data-lightbox="living-room">
+                <img src="https://www.home-designing.com/wp-content/uploads/2018/01/exposed-brick-walls-large-abstract-cool-living-rooms.jpg" alt="Living Room Design 1">
+            </a>
         </div>
         <div class="design">
-            <img src="{% static 'livingroom2.jpeg' %}" alt="Living Room Design 2">
-            <p>Description for Living Room Design 2</p>
+            <a href="https://www.home-designing.com/wp-content/uploads/2018/01/grey-white-and-brown-living-room.jpg" data-lightbox="living-room">
+                <img src="https://www.home-designing.com/wp-content/uploads/2018/01/grey-white-and-brown-living-room.jpg" alt="Living Room Design 2">
+            </a>
         </div>
         <div class="design">
-            <img src="{% static 'livingroom3.jpeg' %}" alt="Living Room Design 3">
-            <p>Description for Living Room Design 3</p>
+            <a href="https://www.home-designing.com/wp-content/uploads/2022/12/modern-living-room.jpg" data-lightbox="living-room">
+                <img src="https://www.home-designing.com/wp-content/uploads/2022/12/modern-living-room.jpg" alt="Living Room Design 3">
+            </a>
         </div>
         <div class="design">
-            <img src="{% static 'livingroom4.jpeg' %}" alt="Living Room Design 4">
-            <p>Description for Living Room Design 4</p>
+            <a href="https://www.home-designing.com/wp-content/uploads/2018/01/cathedral-windows-glass-stairs-monochrome-living-room.jpg" data-lightbox="living-room">
+                <img src="https://www.home-designing.com/wp-content/uploads/2018/01/cathedral-windows-glass-stairs-monochrome-living-room.jpg" alt="Living Room Design 4">
+            </a>
         </div>
+        <div class="design">
+            <a href="https://www.home-designing.com/wp-content/uploads/2018/01/stone-facade-feature-black-walls-original-living-rooms.jpg" data-lightbox="living-room">
+                <img src="https://www.home-designing.com/wp-content/uploads/2018/01/stone-facade-feature-black-walls-original-living-rooms.jpg" alt="Living Room Design 5">
+            </a>
+        </div>
+        <div class="design">
+            <a href="https://www.home-designing.com/wp-content/uploads/2018/01/mushroom-l-couch-black-panel-wall-sophisticated-living-room.jpg" data-lightbox="living-room">
+                <img src="https://www.home-designing.com/wp-content/uploads/2018/01/mushroom-l-couch-black-panel-wall-sophisticated-living-room.jpg" alt="Living Room Design 6">
+            </a>
+        </div>
+        <div class="design">
+            <a href="https://www.home-designing.com/wp-content/uploads/2018/01/exposed-brick-wall-wooden-floors-simplistic-living-room.jpg" data-lightbox="living-room">
+                <img src="https://www.home-designing.com/wp-content/uploads/2018/01/exposed-brick-wall-wooden-floors-simplistic-living-room.jpg" alt="Living Room Design 7">
+            </a>
+        </div>
+        <div class="design">
+            <a href="https://www.home-designing.com/wp-content/uploads/2018/01/geometric-wall-panels-grey-couches-arty-living-room.jpg" data-lightbox="living-room">
+                <img src="https://www.home-designing.com/wp-content/uploads/2018/01/geometric-wall-panels-grey-couches-arty-living-room.jpg" alt="Living Room Design 8">
+            </a>
+        </div>
+        <div class="design">
+            <a href="https://www.home-designing.com/wp-content/uploads/2018/01/large-red-clock-purple-couch-colourful-living-room.jpg" data-lightbox="living-room">
+                <img src="https://www.home-designing.com/wp-content/uploads/2018/01/large-red-clock-purple-couch-colourful-living-room.jpg" alt="Living Room Design 9">
+            </a>
+        </div>
+        <div class="design">
+            <a href="https://www.home-designing.com/wp-content/uploads/2018/01/zebra-rug-spotty-artwork-animal-living-room.jpg" data-lightbox="living-room">
+                <img src="https://www.home-designing.com/wp-content/uploads/2018/01/zebra-rug-spotty-artwork-animal-living-room.jpg" alt="Living Room Design 10">
+            </a>
+        </div>
+        <div class="design">
+            <a href="https://www.home-designing.com/wp-content/uploads/2018/01/tessellated-chandelier-fluffy-rug-modern-living-room.jpg" data-lightbox="living-room">
+                <img src="https://www.home-designing.com/wp-content/uploads/2018/01/tessellated-chandelier-fluffy-rug-modern-living-room.jpg" alt="Living Room Design 11">
+            </a>
+        </div>
+        <div class="design">
+            <a href="https://www.home-designing.com/wp-content/uploads/2018/01/geometric-all-white-living-room.jpg" data-lightbox="living-room">
+                <img src="https://www.home-designing.com/wp-content/uploads/2018/01/geometric-all-white-living-room.jpg" alt="Living Room Design 12">
+            </a>
+        </div>
+        <div class="design">
+            <a href="https://www.home-designing.com/wp-content/uploads/2018/01/French-windows-white-futons-eastern-inspired-living-room.jpg" data-lightbox="living-room">
+                <img src="https://www.home-designing.com/wp-content/uploads/2018/01/French-windows-white-futons-eastern-inspired-living-room.jpg" alt="Living Room Design 13">
+            </a>
+        </div>
+        <div class="design">
+            <a href="https://www.home-designing.com/wp-content/uploads/2018/01/shared-space-living-room-with-office-partition.jpg" data-lightbox="living-room">
+                <img src="https://www.home-designing.com/wp-content/uploads/2018/01/shared-space-living-room-with-office-partition.jpg" alt="Living Room Design 14">
+            </a>
+        </div>
+        <div class="design">
+            <a href="https://www.home-designing.com/wp-content/uploads/2018/01/leather-sling-chairs-white-walls-relaxed-living-room.jpg" data-lightbox="living-room">
+                <img src="https://www.home-designing.com/wp-content/uploads/2018/01/leather-sling-chairs-white-walls-relaxed-living-room.jpg" alt="Living Room Design 15">
+            </a>
+        </div>
+        <div class="design">
+            <a href="https://www.home-designing.com/wp-content/uploads/2018/01/large-grey-abstract-bachelor-living-room.jpg" data-lightbox="living-room">
+                <img src="https://www.home-designing.com/wp-content/uploads/2018/01/large-grey-abstract-bachelor-living-room.jpg" alt="Living Room Design 16">
+            </a>
+        </div>
+        <div class="design">
+            <a href="https://www.home-designing.com/wp-content/uploads/2018/01/retro-yellow-chairs-grey-walls-pop-living-room.jpg" data-lightbox="living-room">
+                <img src="https://www.home-designing.com/wp-content/uploads/2018/01/retro-yellow-chairs-grey-walls-pop-living-room.jpg" alt="Living Room Design 17">
+            </a>
+        </div>
+        <div class="design">
+            <a href="https://www.home-designing.com/wp-content/uploads/2018/01/geometric-rug-high-bookcase-green-walled-living-room.jpg" data-lightbox="living-room">
+                <img src="https://www.home-designing.com/wp-content/uploads/2018/01/geometric-rug-high-bookcase-green-walled-living-room.jpg" alt="Living Room Design 18">
+            </a>
+        </div>
+        <div class="design">
+            <a href="https://www.home-designing.com/wp-content/uploads/2018/01/black-and-yellow-living-room.jpg" data-lightbox="living-room">
+                <img src="https://www.home-designing.com/wp-content/uploads/2018/01/black-and-yellow-living-room.jpg" alt="Living Room Design 19">
+            </a>
+        </div>
+        <div class="design">
+            <a href="https://www.home-designing.com/wp-content/uploads/2018/01/hanging-ferns-circular-pendants-space-age-living-room.jpgf" data-lightbox="living-room">
+                <img src="https://www.home-designing.com/wp-content/uploads/2018/01/hanging-ferns-circular-pendants-space-age-living-room.jpg" alt="Living Room Design 20">
+            </a>
+        </div>
+        <!-- 
+        <div class="design">
+            <a href="fhdhdhdf" data-lightbox="living-room">
+                <img src="fhdhdhdf" alt="Living Room Design ">
+            </a>
+        </div>
+        -->
+
         <!-- Add more living room designs as needed -->
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
 </body>
 </html>
 {% endblock %}
