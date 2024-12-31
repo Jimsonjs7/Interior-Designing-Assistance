@@ -1,0 +1,39 @@
+/* Container for the boxes */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* Space between the boxes */
+    padding: 20px;
+}
+
+/* Style for each box */
+.box {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s;
+    width: 250px;
+    margin: 10px; /* Space around each box */
+}
+
+.box:hover {
+    transform: scale(1.05);
+}
+
+.box img {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #ddd;
+}
+
+.box-content {
+    padding: 10px;
+}
+
+.box-content h2 {
+    color: #333;
+    margin: 0;
+}

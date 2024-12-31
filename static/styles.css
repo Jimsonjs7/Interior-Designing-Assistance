@@ -313,6 +313,14 @@ form input[type="password"] {
     width: calc(100% - 20px);
     box-sizing: border-box;
 }
+.login-container {
+    color:white;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+    padding: 40px;
+    margin: 100px auto;
+    width: 300px;
+}
 
 form button {
     background-color: #F39C12;  /* Orange */

@@ -1,0 +1,173 @@
+{% extends "base.html" %}
+{% load static %}
+{% block 'title' %}Modern Home Interior{% endblock %}
+{% block 'content' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Home Interior</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <style>
+        /* Container for the boxes */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px; /* Space between the boxes */
+            padding: 20px;
+        }
+
+        /* Style for each box */
+        .box {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s;
+            width: 250px;
+            height: 300px; /* Set a fixed height to ensure consistency */
+            margin: 10px; /* Space around each box */
+        }
+
+        .box:hover {
+            transform: scale(1.05);
+        }
+
+        .box img {
+            width: 100%;
+            height: 200px; /* Set a fixed height for images */
+            object-fit: cover; /* Ensure the image covers the area */
+            border-bottom: 1px solid #ddd;
+        }
+
+        .box-content {
+            padding: 5px; /* Reduce the padding */
+            height: calc(100% - 200px); /* Calculate remaining height for content */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .box-content h3 {
+            color: black;
+            margin: 0;
+            font-size: 18px;
+            padding: 2px; /* Reduce padding around the text */
+        }
+
+        .modern-plans {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        
+        /* Individual house plan card */
+        .house-plan {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+            width: 100%;
+            height: 400px; /* Set a fixed height for consistency */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Ensure space between image and plan details */
+        }
+        
+        .house-plan:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Image styling */
+        .house-plan img {
+            width: 100%;
+            height: 60%; /* Ensure the image takes up a fixed part of the card height */
+            object-fit: cover; /* Cover the area without stretching */
+            transition: transform 0.3s ease;
+        }
+        
+        .house-plan:hover img {
+            transform: scale(1.1);
+        }
+        
+        /* Plan details */
+        .plan-details {
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            height: 40%; /* Ensure the details take up the remaining part of the card height */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .plan-details h3 {
+            margin: 10px 0;
+            font-size: 1.2em;
+            font-family: 'Times New Roman', Times, serif; /* Classic font */
+            color: #333; /* Darker color for a classic look */
+        }
+        
+        .plan-details p {
+            margin: 5px 0;
+            font-size: 1em;
+            color: #555;
+        }
+        
+        .house-plan a {
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Modern Home Interior</h1>
+    </header>
+    <div class="modern-plans">
+      <div class="house-plan">
+        <a href="{% url 'living_room_designs' %}">
+          <img src="{% static "modernlivingroom1.jpeg" %}" alt="House Plan Image">
+          <div class="plan-details">
+            <h3>Living Room</h3>
+            <p>Experience modern living with sleek furniture, clean lines, and a harmonious blend of neutral tones. Transform your living space into a minimalist oasis filled with elegance and comfort.</p>
+          </div>
+        </a>
+      </div>
+      
+        <div class="house-plan">
+            <img src="{% static "modernbedroom.jpeg" %}" alt="House Plan Image">
+            <div class="plan-details">
+              <h3>Bedroom</h3>
+              <p>Create a tranquil sanctuary with our modern bedroom designs. Embrace simplicity and sophistication with stylish decor, functional furniture, and a serene color palette.</p>
+            </div>
+        </div>
+
+        <div class="house-plan">
+            <img src="{% static "modernbathroom1.jpeg" %}" alt="House Plan Image">
+            <div class="plan-details">
+              <h3>Bathroom</h3>
+              <p>Indulge in contemporary luxury with our modern bathroom designs. Clean lines, innovative fixtures, and a neutral color scheme come together to create a spa-like retreat in your home.</p>
+            </div>
+        </div>
+
+        <div class="house-plan">
+            <img src="{% static "modernkitchen1.jpeg" %}" alt="House Plan Image">
+            <div class="plan-details">
+            <h3>Kitchen</h3>
+            <p>Upgrade your culinary space with our modern kitchen designs. Featuring cutting-edge appliances, streamlined cabinetry, and an open layout, these kitchens blend functionality with style.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+{% endblock %}

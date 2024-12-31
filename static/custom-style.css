@@ -1,0 +1,64 @@
+/* General styles for the chatbot */
+#webchat {
+    font-family: 'Arial', sans-serif;
+}
+
+/* Bot message bubble */
+.botpress__bubble--bot {
+    background-color: #4CAF50; /* Green background for bot messages */
+    color: white;
+    border-radius: 15px;
+}
+
+/* User message bubble */
+.botpress__bubble--user {
+    background-color: #FFC107; /* Amber background for user messages */
+    color: black;
+    border-radius: 15px;
+}
+
+/* Input area */
+.botpress__input {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Send button */
+.botpress__send-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+/* Header of the chat */
+.botpress__header {
+    background-color: #333;
+    color: white;
+    font-size: 1.2em;
+    padding: 10px;
+}
+
+/* Footer of the chat */
+.botpress__footer {
+    background-color: #f1f1f1;
+    padding: 10px;
+}
+
+/* Customize scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}

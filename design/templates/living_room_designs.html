@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+{% block 'title' %}Living Room Designs{% endblock %}
+{% block 'content' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Living Room Designs</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Living Room Designs</h1>
+    </header>
+    <div class="designs-gallery">
+        <div class="design">
+            <img src="{% static 'livingroom1.jpeg' %}" alt="Living Room Design 1">
+            <p>Description for Living Room Design 1</p>
+        </div>
+        <div class="design">
+            <img src="{% static 'livingroom2.jpeg' %}" alt="Living Room Design 2">
+            <p>Description for Living Room Design 2</p>
+        </div>
+        <div class="design">
+            <img src="{% static 'livingroom3.jpeg' %}" alt="Living Room Design 3">
+            <p>Description for Living Room Design 3</p>
+        </div>
+        <div class="design">
+            <img src="{% static 'livingroom4.jpeg' %}" alt="Living Room Design 4">
+            <p>Description for Living Room Design 4</p>
+        </div>
+        <!-- Add more living room designs as needed -->
+    </div>
+</body>
+</html>
+{% endblock %}

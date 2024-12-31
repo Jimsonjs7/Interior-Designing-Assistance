@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block 'title' %} Interior Design Home{% endblock  %}</title>
     <link rel="stylesheet" href="{% static "styles.css" %}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> -->
+    <link rel="stylesheet" href="{% static 'custom-styles.css' %}">
 </head>
 <body>
     <header>
@@ -17,7 +18,7 @@
                 <li>
                     <a href="#">Designs</a>
                     <ul class="dropdown">
-                        <li><a href="modern.html">Modern</a></li>
+                        <li><a href={% url "modern" %}>Modern</a></li>
                         <li><a href="classic.html">Classic</a></li>
                         <li><a href="minimalist.html">Minimalist</a></li>
                         <li><a href="bohemian.html">Bohemian</a></li>
@@ -27,7 +28,7 @@
                 <li>
                     <a href="#">Product Recommendations</a>
                     <ul class="dropdown">
-                        <li><a href="modern.html">Local Recommendations</a></li>
+                        <li><a href="#">Local Recommendations</a></li>
                         <li><a href="classic.html">Online Recommendations</a></li>
                     </ul>
                 </li>
@@ -55,12 +56,29 @@
     <footer>
         <p class="para-two">&copy; 2024 InterIm Assistant. All rights reserved.</p>
     </footer>
-    <div id="chatbot">
+    <!--<div id="chatbot">
         <button id="chatbot-toggle">Chat with us!</button>
         <div id="chatbot-interface" class="collapsed">
-            <!-- Chatbot interface content -->
-        </div>
+        </div> -->
     </div>
     <script src="{% static 'script.js' %}"></script>
+
+
+    <script src="https://cdn.botpress.cloud/webchat/v2.2/inject.js"></script>
+<script src="https://files.bpcontent.cloud/2024/12/13/16/20241213165245-4QY1R676.js"></script>
+    
+    
+    
+    <!--
+    <script> document.getElementById('chatbot-toggle').addEventListener('click', function() 
+    { window.botpressWebChat.init({
+     botId: '4b64df5a-f33f-4b8e-99fa-bcda9d6828b9', 
+    hostUrl: 'https://cdn.botpress.cloud/webchat/v2.2',
+    messagingUrl: 'https://messaging.botpress.cloud', 
+    configUrl: 'https://files.bpcontent.cloud/2024/12/13/16/20241213165245-NZNN7XAA.json', 
+    stylesheet: 'path_to_your_custom_stylesheet.css', 
+    botName: 'InterIm Assistant', 
+    botAvatarUrl: 'path_to_your_bot_avatar_image.png' }); });
+    </script> -->
 </body>
 </html>
