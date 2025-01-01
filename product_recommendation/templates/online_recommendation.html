@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% load static %}
+{% block 'title' %}Online Products Recommendations{% endblock %}
+{% block 'content' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Product Recommendations</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        .uploaded-image img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 10px auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Online Product Recommendations</h1>
+    </header>
+    <div class="container">
+        <h2>Upload an image, and we'll help you find the products you're looking for!</h2>
+        
+        <form method="POST" enctype="multipart/form-data" action="{% url 'upload_image' %}">
+            {% csrf_token %}
+            <label for="image">Choose an image:</label>
+            <input type="file" id="image" name="image" accept="image/*" required>
+            <button type="submit">Upload</button>
+        </form>
+        
+        {% if uploaded_file_url %}
+            <div class="uploaded-image">
+                <h3>Uploaded Image</h3>
+                <img src="{{ uploaded_file_url }}" alt="Uploaded Image">
+                <p>Here are the products we found in your image:</p>
+                <!-- Future code to display recommended products will go here -->
+            </div>
+        {% endif %}
+    </div>
+    <script src="{% static 'script.js' %}"></script>
+</body>
+</html>
+{% endblock %}
