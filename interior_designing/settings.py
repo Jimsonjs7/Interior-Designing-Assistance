@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'product_recommendation',
+    'rest_framework',
     'design',
     'chatbot',
     'interior_designing_assistance',

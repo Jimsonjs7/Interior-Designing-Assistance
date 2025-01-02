@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}View Profile{% endblock %}
+{% block 'content' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <style>
+
+        .profile-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .profile-container h1 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .profile-container p {
+            margin: 5px 0;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <h1>Profile</h1>
+        <p><strong>Username:</strong> {{ username }}</p>
+        <p><strong>Email:</strong> {{ email }}</p>
+        <p>Full Name: {{ full_name }}</p>
+    </div>
+</body>
+</html>
+{% endblock %}
