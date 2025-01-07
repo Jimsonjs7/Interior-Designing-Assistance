@@ -7,7 +7,22 @@ from django.contrib.auth.decorators import login_required
 
 
 def home(request):
-    return render(request,'home.html')
+    return render(request,'home.html',{
+        'user': request.user
+    })
+
+@login_required
+def homeloggedin(request):
+    user_id = request.session.get('user_id')
+    if user_id:
+        user = User.objects.get(id=user_id)
+        return render(request, 'homeloggedin.html', {
+            'user': user
+        })
+    else:
+        messages.error(request, 'You need to log in first.')
+        return redirect('login')
+
 
 def login(request):
     if request.method == 'POST':
@@ -17,12 +32,14 @@ def login(request):
         if user:
             request.session['user_id'] = user.id
             messages.success(request, 'Login successful')
-            return redirect('viewprofile')
+            return redirect('homeloggedin')
         else:
             if not User.objects.filter(username=username).exists():
                 messages.error(request, "User does not exist.")
             else:
                 messages.error(request, "Incorrect password. Please try again.")
+    return render(request, 'login.html')
+
 
     return render(request, 'login.html')
 def register(request):
@@ -54,6 +71,29 @@ def viewprofile(request):
         'full_name': user.get_full_name(),  # If using the default User model's full name method
     }
     return render(request, 'viewprofile.html', context)
+
+@login_required
+def updateprofile(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        email = request.POST.get('email')
+        full_name = request.POST.get('full_name')
+        
+        user = request.user
+        user.username = username
+        user.email = email
+        user.first_name, user.last_name = full_name.split(' ', 1)
+        user.save()
+        
+        messages.success(request, 'Profile updated successfully!')
+        return redirect('viewprofile')
+    
+    return render(request, 'updateprofile.html', {
+        'username': request.user.username,
+        'email': request.user.email,
+        'full_name': request.user.get_full_name(),
+    })
+
 
 """
 def about(request):

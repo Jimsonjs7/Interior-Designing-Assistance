@@ -45,8 +45,8 @@
             </a>
             <ul class="profile-dropdown" id="profileDropdown">
                 <li><a href={% url "login" %}>Login</a></li>
-                <li><a href="#">Manage Profiles</a></li>
-                <li><a href="#">My Account</a></li>
+                <li><a href={% url "updateprofile" %}>Manage Profile</a></li>
+                <li><a href={% url "viewprofile" %}>My Account</a></li>
                 <li><a href="#">Contact Us</a></li>
                 <li><a href="#">Sign Out</a></li>
             </ul>

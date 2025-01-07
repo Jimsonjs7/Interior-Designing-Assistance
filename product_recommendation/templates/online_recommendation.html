@@ -10,7 +10,6 @@
     <title>Online Product Recommendations</title>
     <link rel="stylesheet" href="{% static 'styles.css' %}">
     <style>
-
         .container {
             width: 80%;
             margin: auto;
@@ -31,7 +30,7 @@
     <div class="container">
         <h2>Upload an image, and we'll help you find the products you're looking for!</h2>
         
-        <form method="POST" enctype="multipart/form-data" action="#">
+        <form method="POST" enctype="multipart/form-data" action="{% url 'upload_image' %}">
             {% csrf_token %}
             <label for="image">Choose an image:</label>
             <input type="file" id="image" name="image" accept="image/*" required>
@@ -43,11 +42,15 @@
                 <h3>Uploaded Image</h3>
                 <img src="{{ uploaded_file_url }}" alt="Uploaded Image">
                 <p>Here are the products we found in your image:</p>
-                <!-- Future code to display recommended products will go here -->
+                <ul>
+                    {% for product, url in predictions.items %}
+                        <li><a href="{{ url }}">{{ product }}</a></li>
+                    {% endfor %}
+                </ul>
             </div>
         {% endif %}
     </div>
-   <!--   <script src="{% static 'script.js' %}"></script> -->
+    <!-- <script src="{% static 'script.js' %}"></script> -->
 </body>
 </html>
 {% endblock %}
