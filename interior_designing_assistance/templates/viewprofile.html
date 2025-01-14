@@ -32,6 +32,11 @@
         <p><strong>Username:</strong> {{ username }}</p>
         <p><strong>Email:</strong> {{ email }}</p>
         <p>Full Name: {{ full_name }}</p>
+        <h2>Debug Information</h2>
+        <p><strong>Request User:</strong> {{ request.user }}</p>
+        <p><strong>Request User Username:</strong> {{ request.user.username }}</p>
+        <p><strong>Request User Email:</strong> {{ request.user.email }}</p>
+        <p><strong>Request User Full Name:</strong> {{ request.user.get_full_name }}</p>
     </div>
 </body>
 </html>

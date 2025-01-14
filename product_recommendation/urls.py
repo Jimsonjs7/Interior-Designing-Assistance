@@ -1,10 +1,10 @@
 from django.urls import path
 from . import views
-
 urlpatterns = [
     path('online_recommendation/', views.online_recommendation, name='online_recommendation'),
     path('offline_recommendation/', views.offline_recommendation, name='offline_recommendation'),
     path('recommend/', views.upload_image, name='upload_image'),
+    path('offline_map _recommendation/', views.offline_map_recommendation, name='offline_map _recommendation.html'),
     #path('login/', views.login, name='login'),
     #path('register/', views.register, name='register'),
    # path('about/', views.about, name='about'),

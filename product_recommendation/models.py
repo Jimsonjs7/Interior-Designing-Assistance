@@ -7,3 +7,7 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+    
+class UploadedImage(models.Model):
+    image = models.ImageField(upload_to='uploads/')
+    detected_objects = models.TextField(blank=True, null=True)

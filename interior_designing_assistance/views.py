@@ -39,9 +39,6 @@ def login(request):
             else:
                 messages.error(request, "Incorrect password. Please try again.")
     return render(request, 'login.html')
-
-
-    return render(request, 'login.html')
 def register(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -51,7 +48,7 @@ def register(request):
         if not User.objects.filter(username=username).exists():
             User.objects.create(
                 username=username,
-                password=make_password(password),  # Hash the password
+                password=password,  # Hash the password
                 email=email,
                 full_name=full_name,  # Assuming full_name is stored in first_name
             )
@@ -64,13 +61,19 @@ def register(request):
 
 @login_required
 def viewprofile(request):
+    if not request.user.is_authenticated:
+        return redirect('login')  # Redirect to the login page if not authenticated
+    
     user = request.user  # Fetch the currently logged-in user
+
     context = {
         'username': user.username,
         'email': user.email,
         'full_name': user.get_full_name(),  # If using the default User model's full name method
     }
     return render(request, 'viewprofile.html', context)
+
+
 
 @login_required
 def updateprofile(request):

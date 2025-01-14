@@ -1,25 +1,69 @@
-{% extends "base.html" %}
-{% load static %}
-{% block 'title' %}Online Products Recommendations{% endblock %}
-{% block 'content' %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Online Product Recommendations</title>
-    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="">
     <style>
         .container {
             width: 80%;
             margin: auto;
             overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            margin: 20px auto;
+            text-align: center;
+        }
+        form button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        form button:hover {
+            background-color: #0056b3;
+        }
+        .uploaded-image {
+            margin-top: 20px;
+            text-align: center;
         }
         .uploaded-image img {
-            max-width: 100%;
+            max-width: 80%;
             height: auto;
-            display: block;
-            margin: 10px auto;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .products-list {
+            margin: 20px auto;
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+        .products-list li {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+        .products-list a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        .products-list a:hover {
+            text-decoration: underline;
+        }
+        .error-message {
+            color: red;
+            text-align: center;
         }
     </style>
 </head>
@@ -30,10 +74,9 @@
     <div class="container">
         <h2>Upload an image, and we'll help you find the products you're looking for!</h2>
         
-        <form method="POST" enctype="multipart/form-data" action="{% url 'upload_image' %}">
+        <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
-            <label for="image">Choose an image:</label>
-            <input type="file" id="image" name="image" accept="image/*" required>
+            {{ form.as_p }}
             <button type="submit">Upload</button>
         </form>
         
@@ -41,16 +84,20 @@
             <div class="uploaded-image">
                 <h3>Uploaded Image</h3>
                 <img src="{{ uploaded_file_url }}" alt="Uploaded Image">
-                <p>Here are the products we found in your image:</p>
-                <ul>
-                    {% for product, url in predictions.items %}
-                        <li><a href="{{ url }}">{{ product }}</a></li>
-                    {% endfor %}
-                </ul>
+            </div>
+            <div>
+                {% if predictions %}
+                    <h3>Products Found</h3>
+                    <ul class="products-list">
+                        {% for product, url in predictions.items %}
+                            <li><a href="{{ url }}" target="_blank">{{ product }}</a></li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p class="error-message">No products were detected in the image. Please try again with a different image.</p>
+                {% endif %}
             </div>
         {% endif %}
     </div>
-    <!-- <script src="{% static 'script.js' %}"></script> -->
 </body>
 </html>
-{% endblock %}
