@@ -74,7 +74,7 @@ def upload_image(request):
             'predictions': predictions
         })
     return render(request, 'recommendation.html')
-
+'''
 from django.shortcuts import render
 from .forms import ImageUploadForm
 from .models import UploadedImage
@@ -101,3 +101,4 @@ def upload_image(request):
 
     return render(request, 'recommendation.html', {'form': form})
 
+'''
