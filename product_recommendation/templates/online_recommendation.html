@@ -77,6 +77,17 @@
             {{ form.as_p }}
             <button type="submit">Upload</button>
         </form>
+
+        <!-- Loading Indicator -->
+        <div id="loading" style="display:none; text-align:center;">
+            <p>Processing... Please wait.</p>
+        </div>
+        
+        <script>
+            document.querySelector('form').addEventListener('submit', function() {
+                document.getElementById('loading').style.display = 'block';
+            });
+        </script>
         
         {% if uploaded_file_url %}
             <div class="uploaded-image">
