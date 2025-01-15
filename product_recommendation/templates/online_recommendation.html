@@ -1,11 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Online Product Recommendations</title>
-    <link rel="stylesheet" href="">
     <style>
         .container {
             width: 80%;
@@ -85,19 +83,31 @@
                 <h3>Uploaded Image</h3>
                 <img src="{{ uploaded_file_url }}" alt="Uploaded Image">
             </div>
-            <div>
-                {% if predictions %}
-                    <h3>Products Found</h3>
-                    <ul class="products-list">
-                        {% for product, url in predictions.items %}
-                            <li><a href="{{ url }}" target="_blank">{{ product }}</a></li>
-                        {% endfor %}
-                    </ul>
-                {% else %}
-                    <p class="error-message">No products were detected in the image. Please try again with a different image.</p>
-                {% endif %}
+        {% endif %}
+        
+        {% if annotated_image_url %}
+            <div class="uploaded-image">
+                <h3>Annotated Image</h3>
+                <img src="{{ annotated_image_url }}" alt="Annotated Image">
             </div>
         {% endif %}
+        
+        <div>
+            {% if predictions %}
+                <h3>Products Found</h3>
+                <ul class="products-list">
+                    {% for prediction in predictions %}
+                        <li>
+                            <strong>{{ prediction.label }}</strong> 
+                            (Confidence: {{ prediction.confidence|floatformat:2 }}) - 
+                            <a href="{{ prediction.search_url }}" target="_blank">Find on Google Shopping</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p class="error-message">No products were detected in the image. Please try again with a different image.</p>
+            {% endif %}
+        </div>
     </div>
 </body>
 </html>
