@@ -3,7 +3,7 @@ import os
 from PIL import Image
 from io import BytesIO
 
-openai.api_key = "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"  # Replace with your API key
+openai.api_key = "api"  # Replace with your API key
 
 def design_room_with_prompt(image_path, prompt):
     """
