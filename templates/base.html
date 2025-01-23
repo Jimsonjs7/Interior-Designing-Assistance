@@ -18,7 +18,7 @@
                 <li>
                     <a href="#">Designs</a>
                     <ul class="dropdown">
-                        <li><a href={% url "modern" %}>Modern</a></li>
+                        <li><a href="{% url 'designs:modern' %}">Modern</a></li>
                         <li><a href="classic.html">Classic</a></li>
                         <li><a href="minimalist.html">Minimalist</a></li>
                         <li><a href="bohemian.html">Bohemian</a></li>
@@ -26,10 +26,11 @@
                 </li>
                 <li><a href="community.html">Community Discussions</a></li>
                 <li>
-                    <a href="#">Product Recommendations</a>
+                    <a href="#">Product Assistance</a>
                     <ul class="dropdown">
                         <li><a href={% url "offline_recommendation" %}>Local Recommendations</a></li>
                         <li><a href={% url "online_recommendation" %}>Online Recommendations</a></li>
+                        <li><a href={% url "ai_room_designer" %}>Ai Room Designer</a></li>
                     </ul>
                 </li>
                 <li><a href="quiz.html">Design Quiz</a></li>

@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'room_designer',
     'product_recommendation',
     'rest_framework',
     'design',

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Recommendations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        h1 {
+            color: #007BFF;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .image-container {
+            margin: 20px auto;
+        }
+
+        .image-container img {
+            max-width: 400px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .detected-products {
+            margin: 20px auto;
+        }
+
+        .detected-products ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .detected-products li {
+            margin: 15px 0;
+            font-size: 1.2em;
+        }
+
+        .detected-products a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        .detected-products a:hover {
+            text-decoration: underline;
+        }
+
+        .no-products {
+            color: #FF0000;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Product Recommendations</h1>
+
+        <!-- Display the clicked image -->
+        {% if original_image_path %}
+            <div class="image-container">
+                <h3>Clicked Image</h3>
+                <img src="{{ original_image_path|escape }}" alt="Original Image">
+            </div>
+        {% endif %}
+
+        <!-- Display the annotated image -->
+        {% if annotated_image_path %}
+            <div class="image-container">
+                <h3>Annotated Image</h3>
+                <img src="{{ annotated_image_path|escape }}" alt="Annotated Image">
+            </div>
+        {% endif %}
+
+        <!-- Display the detected products -->
+        {% if detected_products %}
+            <div class="detected-products">
+                <h3>Detected Products</h3>
+                <ul>
+                    {% for product in detected_products %}
+                        <li>
+                            <strong>{{ product.label }}</strong> - Confidence: {{ product.confidence|floatformat:2 }}<br>
+                            <a href="{{ product.search_url }}" target="_blank">Shop Similar Products</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% else %}
+            <p class="no-products">No products detected. Please try with a different image.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

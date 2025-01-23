@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Room Designer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #007BFF;
+        }
+
+        img {
+            max-width: 400px;
+            margin: 20px 0;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+        }
+
+        textarea {
+            width: 100%;
+            max-width: 500px;
+            height: 100px;
+            margin: 20px 0;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>AI Room Designer</h1>
+
+    <!-- Room Image Upload Form -->
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Generate Design</button>
+    </form>
+
+    <!-- Display Uploaded Image -->
+    {% if uploaded_image_url %}
+        <h3>Uploaded Room Image</h3>
+        <img src="{{ uploaded_image_url }}" alt="Uploaded Room Image">
+    {% endif %}
+
+    <!-- Display AI-Generated Design -->
+    {% if generated_design_url %}
+        <h3>AI-Generated Room Design</h3>
+        <img src="{{ generated_design_url }}" alt="Generated Room Design">
+    {% endif %}
+</body>
+</html>
