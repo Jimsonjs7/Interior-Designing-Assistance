@@ -1,35 +1,69 @@
+import requests
 from django.shortcuts import render
-from .forms import RoomDesignForm
-from .utils import design_room_with_prompt
-import os
+from django.conf import settings
+from .forms import RoomDesignForm  # Import the form
+
+def results(request):
+    """
+    Renders the offline recommendation page.
+    """
+    return render(request, 'results.html')
 
 def ai_room_designer(request):
-    uploaded_image_url = None
-    generated_design_url = None
+    """Render the main AI Room Designer page."""
+    form = RoomDesignForm()
+    return render(request, "ai_room_designer.html", {"form": form})
 
+
+
+def generate_image(request):
+    """Handles image generation with Stability AI."""
     if request.method == "POST":
-        form = RoomDesignForm(request.POST, request.FILES)
-        if form.is_valid():
-            # Save the uploaded image
-            image = form.cleaned_data["image"]
-            prompt = form.cleaned_data["prompt"]
-            image_path = f"media/{image.name}"
-            with open(image_path, "wb+") as f:
-                for chunk in image.chunks():
-                    f.write(chunk)
+        form = RoomDesignForm(request.POST)  # Handle form submission
 
-            uploaded_image_url = f"/media/{image.name}"
+        if form.is_valid():  # Ensure form input is valid
+            prompt = form.cleaned_data['prompt']
 
-            # Use AI to generate the design based on the prompt
-            generated_design_path = design_room_with_prompt(image_path, prompt)
-            if generated_design_path:
-                generated_design_url = f"/media/{os.path.basename(generated_design_path)}"
+            headers = {
+                "Authorization": f"Bearer {settings.STABILITY_API_KEY}",
+                "Accept": "application/json",  # We expect JSON response
+            }
 
-    else:
-        form = RoomDesignForm()
+            # Prepare the payload and files for multipart/form-data
+            files = {
+                'prompt': (None, prompt, 'text/plain'),  # Send the prompt as a plain text file
+                'steps': (None, '50'),
+                'width': (None, '1024'),
+                'height': (None, '1024'),
+                'cfg_scale': (None, '7.5')
+            }
 
-    return render(request, "ai_room_designer.html", {
-        "form": form,
-        "uploaded_image_url": uploaded_image_url,
-        "generated_design_url": generated_design_url,
-    })
+            # Send the POST request with 'multipart/form-data' encoding
+            response = requests.post(
+                "https://api.stability.ai/v2beta/stable-image/generate/sd3",
+                headers=headers,
+                files=files
+            )
+
+            # Print the entire response for debugging
+            print(f"Status Code: {response.status_code}")
+            response_data = response.json()
+
+            # Log the complete structure of the response
+            print("Full Response:", response_data)
+
+            # Check if the 'image' key contains the generated image
+            image_data = response_data.get('image', None)
+
+            if image_data:
+                # If the image is in base64 format, create a data URL for the image
+                image_data_url = f"data:image/png;base64,{image_data}"
+                return render(request, "results.html", {"image_data_url": image_data_url})
+            else:
+                error_msg = response_data.get("error", "Image generation failed. No image returned.")
+                return render(request, "ai_room_designer.html", {"form": form, "error": error_msg})
+
+        else:
+            return render(request, "ai_room_designer.html", {"form": form, "error": "Invalid input. Please try again."})
+
+    return render(request, "ai_room_designer.html", {"form": RoomDesignForm()})

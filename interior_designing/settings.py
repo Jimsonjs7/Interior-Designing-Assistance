@@ -133,5 +133,23 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+from dotenv import load_dotenv
+import os
+import replicate  # Ensure the replicate library is installed
 
+# Load environment variables from the .env file
+load_dotenv()
 
+# Retrieve the Replicate API token
+REPLICATE_API_TOKEN = os.getenv("REPLICATE_API_TOKEN")
+
+# Set the token for the replicate library
+os.environ["REPLICATE_API_TOKEN"] = REPLICATE_API_TOKEN
+
+# Example: Verify the API token
+if REPLICATE_API_TOKEN:
+    print("Replicate API token loaded successfully!")
+else:
+    print("Error: Replicate API token is missing. Check your .env file.")
+
+STABILITY_API_KEY = "sk-jJleFCkWT6T6n3UyZfPRReg8aUFQLPDtUzkWzlMnfFblLORu"

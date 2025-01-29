@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generated Room Design</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        img {
+            margin-top: 20px;
+            max-width: 100%;
+            border-radius: 5px;
+            box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+        }
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Generated Room Design</h1>
+        {% if image_data_url %}
+            <img src="{{ image_data_url }}" alt="AI Generated Room Design">
+            <br>
+            <a href="{% url 'ai_room_designer' %}" class="back-button">Generate Another Design</a>
+        {% else %}
+            <p style="color: red;">No image found. Please try again.</p>
+            <a href="{% url 'ai_room_designer' %}" class="back-button">Back to Home</a>
+        {% endif %}
+    </div>
+
+</body>
+</html>

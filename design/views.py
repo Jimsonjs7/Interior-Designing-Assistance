@@ -12,11 +12,17 @@ def modern(request):
     return render(request, 'modern.html')
 
 
-def living_room_designs(request):
-    """
-    Render the living room designs page.
-    """
-    return render(request, 'living_room_designs.html')
+def modern_living_room_designs(request):
+    return render(request, 'modern_living_room_designs.html')
+
+def modern_bedroom(request):
+    return render(request, 'modern_bedroom.html')
+
+def modern_kitchen(request):
+    return render(request, 'modern_kitchen.html')
+
+def modern_bathroom(request):
+    return render(request, 'modern_bathroom.html')
 
 
 from django.core.validators import URLValidator

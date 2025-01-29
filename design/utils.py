@@ -6,6 +6,7 @@ from colorthief import ColorThief
 from ultralytics import YOLO
 
 
+
 def detect_objects(image_content_or_url):
     """
     Detect objects in an image using YOLO.

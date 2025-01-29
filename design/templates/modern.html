@@ -134,37 +134,36 @@
         <h1>Modern Home Interior</h1>
     </header>
     <div class="modern-plans">
-      <div class="house-plan">
-        <a href="{% url 'designs:living_room_designs' %}">
-          <img src="{% static "modernlivingroom1.jpeg" %}" alt="House Plan Image">
-          <div class="plan-details">
-            <h3>Living Room</h3>
-            <p>Experience modern living with sleek furniture, clean lines, and a harmonious blend of neutral tones. Transform your living space into a minimalist oasis filled with elegance and comfort.</p>
-          </div>
-        </a>
-      </div>
-      
         <div class="house-plan">
-            <img src="{% static "modernbedroom.jpeg" %}" alt="House Plan Image">
+            <a href="{% url 'designs:modern_living_room_designs' %}">
+                <img src="{% static 'modernlivingroom1.jpeg' %}" alt="House Plan Image">
+                <div class="plan-details">
+                    <h3>Living Room</h3>
+                    <p>Experience modern living with sleek furniture, clean lines, and a harmonious blend of neutral tones. Transform your living space into a minimalist oasis filled with elegance and comfort.</p>
+                </div>
+            </a>
+        </div>
+        <div class="house-plan">
+            <a href="{% url 'designs:modern_bedroom' %}">
+                <img src="{% static 'modernbedroom.jpeg' %}" alt="House Plan Image">
+                <div class="plan-details">
+                    <h3>Bed Room</h3>
+                    <p>Create a tranquil sanctuary with our modern bedroom designs. Embrace simplicity and sophistication with stylish decor, functional furniture, and a serene color palette.</p>
+                </div>
+            </a>
+        </div>
+        <div class="house-plan">
+            <img src="{% static 'modernbathroom1.jpeg' %}" alt="House Plan Image">
             <div class="plan-details">
-              <h3>Bedroom</h3>
-              <p>Create a tranquil sanctuary with our modern bedroom designs. Embrace simplicity and sophistication with stylish decor, functional furniture, and a serene color palette.</p>
+                <h3>Bathroom</h3>
+                <p>Indulge in contemporary luxury with our modern bathroom designs. Clean lines, innovative fixtures, and a neutral color scheme come together to create a spa-like retreat in your home.</p>
             </div>
         </div>
-
         <div class="house-plan">
-            <img src="{% static "modernbathroom1.jpeg" %}" alt="House Plan Image">
+            <img src="{% static 'modernkitchen1.jpeg' %}" alt="House Plan Image">
             <div class="plan-details">
-              <h3>Bathroom</h3>
-              <p>Indulge in contemporary luxury with our modern bathroom designs. Clean lines, innovative fixtures, and a neutral color scheme come together to create a spa-like retreat in your home.</p>
-            </div>
-        </div>
-
-        <div class="house-plan">
-            <img src="{% static "modernkitchen1.jpeg" %}" alt="House Plan Image">
-            <div class="plan-details">
-            <h3>Kitchen</h3>
-            <p>Upgrade your culinary space with our modern kitchen designs. Featuring cutting-edge appliances, streamlined cabinetry, and an open layout, these kitchens blend functionality with style.</p>
+                <h3>Kitchen</h3>
+                <p>Upgrade your culinary space with our modern kitchen designs. Featuring cutting-edge appliances, streamlined cabinetry, and an open layout, these kitchens blend functionality with style.</p>
             </div>
         </div>
     </div>

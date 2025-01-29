@@ -7,66 +7,68 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
-            padding: 20px;
+            background-color: #f4f4f4;
             text-align: center;
+            padding: 20px;
         }
-
-        h1 {
-            color: #007BFF;
-        }
-
-        img {
-            max-width: 400px;
-            margin: 20px 0;
-            border: 1px solid #ddd;
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
             border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
         }
-
-        textarea {
-            width: 100%;
-            max-width: 500px;
-            height: 100px;
-            margin: 20px 0;
+        input[type="text"] {
+            width: 80%;
             padding: 10px;
-            font-size: 16px;
-        }
-
-        button {
-            background-color: #007BFF;
-            color: white;
-            padding: 10px 20px;
-            border: none;
+            margin: 10px 0;
+            border: 1px solid #ccc;
             border-radius: 5px;
-            font-size: 16px;
+        }
+        button {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
             cursor: pointer;
         }
-
         button:hover {
-            background-color: #0056b3;
+            background: #218838;
+        }
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+        img {
+            margin-top: 20px;
+            max-width: 100%;
+            border-radius: 5px;
         }
     </style>
 </head>
 <body>
-    <h1>AI Room Designer</h1>
 
-    <!-- Room Image Upload Form -->
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Generate Design</button>
-    </form>
+    <div class="container">
+        <h1>AI Room Designer</h1>
+        <p>Describe your dream interior design, and AI will generate an image!</p>
 
-    <!-- Display Uploaded Image -->
-    {% if uploaded_image_url %}
-        <h3>Uploaded Room Image</h3>
-        <img src="{{ uploaded_image_url }}" alt="Uploaded Room Image">
-    {% endif %}
+        <form method="POST" action="{% url 'generate_image' %}">
+            {% csrf_token %}
+            {{ form.as_p }}  <!-- Render form fields -->
+            <button type="submit">Generate Design</button>
+        </form>
 
-    <!-- Display AI-Generated Design -->
-    {% if generated_design_url %}
-        <h3>AI-Generated Room Design</h3>
-        <img src="{{ generated_design_url }}" alt="Generated Room Design">
-    {% endif %}
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+
+        {% if image_data_url %}
+            <h3>Generated Design:</h3>
+            <img src="{{ image_data_url }}" alt="AI Generated Room Design">
+        {% endif %}
+    </div>
+
 </body>
 </html>
