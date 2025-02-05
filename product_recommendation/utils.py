@@ -47,7 +47,8 @@ def detect_objects(image_path):
 
             # Create a color-based Google Shopping query
             color_query = f"{dominant_color[0]},{dominant_color[1]},{dominant_color[2]}"
-            search_url = f"https://www.google.com/search?q={model.names[int(label)]}+color+{color_query}&tbm=shop"
+            search_url = f"https://www.flipkart.com/search?q={model.names[int(label)]}+color+{color_query}"
+
 
             # Add detection details
             detections.append({

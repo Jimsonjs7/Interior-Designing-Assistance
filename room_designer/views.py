@@ -2,6 +2,18 @@ import requests
 from django.shortcuts import render
 from django.conf import settings
 from .forms import RoomDesignForm  # Import the form
+from dotenv import load_dotenv
+import os
+import requests
+from django.conf import settings
+
+STABILITY_API_KEY = settings.STABILITY_API_KEY
+
+# Load environment variables from the .env file
+load_dotenv()
+
+# Get the API key from the environment variable
+STABILITY_API_KEY = os.getenv("STABILITY_API_KEY")
 
 def results(request):
     """
