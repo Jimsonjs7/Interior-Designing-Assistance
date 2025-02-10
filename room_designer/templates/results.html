@@ -1,3 +1,7 @@
+{% extends "base1.html" %}
+{% load static %}
+{% block 'title' %}Ai Room Designer {% endblock %}
+{% block 'content' %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,53 +9,91 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Generated Room Design</title>
     <style>
+        h2 {
+            color:rgb(1, 3, 6);
+            text-align: center;
+            margin-top: 20px;
+        }
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
             text-align: center;
-            padding: 20px;
         }
         .container {
-            max-width: 600px;
+            width: 70%;
             margin: 0 auto;
-            background: white;
-            padding: 20px;
             border-radius: 10px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
         }
-        img {
+        .image-container {
             margin-top: 20px;
-            max-width: 100%;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.6);
             border-radius: 5px;
             box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
         }
-        .back-button {
-            display: inline-block;
+        img {
+            max-width: 60%;
+            border-radius: 5px;
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
             margin-top: 20px;
+        }
+        .btn {
+            display: inline-block;
             padding: 10px 15px;
-            background-color: #007bff;
-            color: white;
             text-decoration: none;
             border-radius: 5px;
+            color: white;
+            font-weight: bold;
+        }
+        .back-button {
+            background-color: #007bff;
         }
         .back-button:hover {
             background-color: #0056b3;
         }
+        .download-button {
+            background-color: #28a745;
+        }
+        .download-button:hover {
+            background-color: #218838;
+        }
+        .footer {
+            margin-top: 40px;
+        }
+        p {
+            text-align: center;
+            color: black;
+        }
     </style>
 </head>
 <body>
-
+    <h2>Generated Room Design</h2>
     <div class="container">
-        <h1>Generated Room Design</h1>
         {% if image_data_url %}
-            <img src="{{ image_data_url }}" alt="AI Generated Room Design">
-            <br>
-            <a href="{% url 'ai_room_designer' %}" class="back-button">Generate Another Design</a>
+            <div class="image-container">
+                <img src="{{ image_data_url }}" alt="AI Generated Room Design">
+            </div>
+            
+            <div class="button-container">
+                <a href="{{ image_data_url }}" download="generated_room_design.png" class="btn download-button">Download Image</a>
+                <a href="{% url 'ai_room_designer' %}" class="btn back-button">Generate Another Design</a>
+            </div>
+
+            <p><br><br></p>
+
         {% else %}
             <p style="color: red;">No image found. Please try again.</p>
-            <a href="{% url 'ai_room_designer' %}" class="back-button">Back to Home</a>
+            <div class="footer">
+                <a href="{% url 'ai_room_designer' %}" class="btn back-button">Back to Home</a>
+            </div>
         {% endif %}
     </div>
-
 </body>
 </html>
+{% endblock %}
