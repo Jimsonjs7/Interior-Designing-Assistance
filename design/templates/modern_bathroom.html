@@ -1,0 +1,170 @@
+{% extends "base.html" %}
+{% load static %}
+{% block 'title' %}Bedroom Designs{% endblock %}
+{% block 'content' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bedroom Designs</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+    <style>
+        .designs-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .design {
+            width: 250px; /* Reduced width for smaller boxes */
+            height: 250px; /* Reduced height for smaller boxes */
+            overflow: hidden;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .design a {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .design img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            transform: scale(1.2); /* Slight zoom out effect */
+        }
+
+        .design:hover img {
+            transform: scale(1.1); /* Zoom in a bit on hover */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>bathroom Designs</h1>
+    </header>
+    <div class="designs-gallery">
+        <div class="designs-gallery">
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'bathroom Design 1' %}?image_url={{ "https://www.home-designing.com/wp-content/uploads/2018/05/teal-grey-and-white-bathroom.jpg"|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2018/05/teal-grey-and-white-bathroom.jpg" alt="Living Room Design 1">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'bathroom Design 2' %}?image_url={{ 'https://www.home-designing.com/wp-content/uploads/2018/05/grey-white-bathroom-ideas-1.jpg'|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2018/05/grey-white-bathroom-ideas-1.jpg" alt="Living Room Design 2">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'bathroom Design 3' %}?image_url={{ 'https://www.home-designing.com/wp-content/uploads/2018/05/white-tiles-grey-grout-bathroom.jpg'|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2018/05/white-tiles-grey-grout-bathroom.jpg" alt="Living Room Design 3">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'bathroom Design 4' %}?image_url={{ 'https://www.home-designing.com/wp-content/uploads/2018/05/bathroom-grey-and-white.jpg'|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2018/05/bathroom-grey-and-white.jpg" alt="Living Room Design 4">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'bathroom Design 5' %}?image_url={{ 'https://www.home-designing.com/wp-content/uploads/2018/05/black-white-grey-bathroom-600x508.jpg'|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2018/05/black-white-grey-bathroom-600x508.jpg" alt="Living Room Design 5">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'bathroom Design 6' %}?image_url={{ 'https://www.home-designing.com/wp-content/uploads/2018/05/grey-white-bathroom-600x500.jpg'|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2018/05/grey-white-bathroom-600x500.jpg" alt="Living Room Design 6">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'bathroom Design 7' %}?image_url={{ 'https://www.home-designing.com/wp-content/uploads/2018/05/bathroom-tile-ideas-grey-and-white-600x800.jpg'|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2018/05/bathroom-tile-ideas-grey-and-white-600x800.jpg" alt="Living Room Design 7">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'bathroom Design 8' %}?image_url={{ 'https://www.home-designing.com/wp-content/uploads/2018/05/small-bathroom-grey-and-white-600x783.jpg'|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2018/05/small-bathroom-grey-and-white-600x783.jpg" alt="Living Room Design 8">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'bathroom Design 9' %}?image_url={{ 'https://www.home-designing.com/wp-content/uploads/2018/05/bathroom-grey-floor-white-walls-600x423.jpg'|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2018/05/bathroom-grey-floor-white-walls-600x423.jpg" alt="Living Room Design 9">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'bathroom Design 10' %}?image_url={{ 'https://www.home-designing.com/wp-content/uploads/2018/05/bathroom-pendant-lights-600x750.jpg'|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2018/05/bathroom-pendant-lights-600x750.jpg" alt="Living Room Design 10">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'bathroom Design 11' %}?image_url={{ 'https://www.home-designing.com/wp-content/uploads/2018/05/grey-and-white-bathroom-rug-600x397.jpg'|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2018/05/grey-and-white-bathroom-rug-600x397.jpg" alt="Living Room Design 11">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'bathroom Design 12' %}?image_url={{ 'https://www.home-designing.com/wp-content/uploads/2018/05/modern-bathroom-grey-and-white-600x706.jpg'|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2018/05/modern-bathroom-grey-and-white-600x706.jpg" alt="Living Room Design 12">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'bathroom Design 13' %}?image_url={{ 'https://www.home-designing.com/wp-content/uploads/2018/05/grey-white-bathroom-ideas-600x789.jpg'|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2018/05/grey-white-bathroom-ideas-600x789.jpg" alt="Living Room Design 13">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'bathroom Design 14' %}?image_url={{ 'https://www.home-designing.com/wp-content/uploads/2018/05/black-white-and-grey-bathroom-tiles-600x1097.jpg'|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2018/05/black-white-and-grey-bathroom-tiles-600x1097.jpg" alt="Living Room Design 14">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'bathroom Design 15' %}?image_url={{ 'https://www.home-designing.com/wp-content/uploads/2018/05/Textured-white-bathroom-tiles-600x500.jpg'|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2018/05/Textured-white-bathroom-tiles-600x500.jpg" alt="Living Room Design 15">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'bathroom Design 16' %}?image_url={{ 'https://www.home-designing.com/wp-content/uploads/2018/05/Grey-geometric-bathroom-tiles-600x540.jpg'|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2018/05/Grey-geometric-bathroom-tiles-600x540.jpg" alt="Living Room Design 16">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'bathroom Design 17' %}?image_url={{ 'https://www.home-designing.com/wp-content/uploads/2018/05/grey-white-bathroom-tiles-600x800.jpg'|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2018/05/grey-white-bathroom-tiles-600x800.jpg" alt="Living Room Design 17">
+                </a>
+            </div>
+        <div class="design">
+            <a href="{% url 'designs:product_recommendation' 'bathroom Design 18' %}?image_url={{ "https://www.home-designing.com/wp-content/uploads/2018/05/grey-and-white-bathroom-tile-ideas-600x540.jpg" |urlencode }}">
+                <img src="https://www.home-designing.com/wp-content/uploads/2018/05/grey-and-white-bathroom-tile-ideas-600x540.jpg" alt="Living Room Design 18">
+            </a>
+        </div>
+        <div class="design">
+            <a href="{% url 'designs:product_recommendation' 'bathroom Design 19' %}?image_url={{ "https://www.home-designing.com/wp-content/uploads/2018/05/grey-and-white-bathroom-pictures-600x400.jpg"|urlencode }}">
+                <img src="https://www.home-designing.com/wp-content/uploads/2018/05/grey-and-white-bathroom-pictures-600x400.jpg" alt="Living Room Design 19">
+            </a>
+        </div>
+        <div class="design">
+            <a href="{% url 'designs:product_recommendation' 'bathroom Design 20' %}?image_url={{ "https://www.home-designing.com/wp-content/uploads/2018/05/decorative-vase-600x600.jpg"|urlencode }}">
+                <img src="https://www.home-designing.com/wp-content/uploads/2018/05/decorative-vase-600x600.jpg" alt="Living Room Design 20">
+            </a>
+        </div>
+        <!-- 
+        <div class="design">
+            <a href="fhdhdhdf" data-lightbox="living-room">
+                <img src="fhdhdhdf" alt="Living Room Design ">
+            </a>
+        </div>
+        -->
+
+        <!-- Add more living room designs as needed -->
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+</body>
+</html>
+{% endblock %}

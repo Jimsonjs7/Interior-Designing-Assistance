@@ -1,0 +1,314 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+   /* background: url("{% static 'home.jpg' %}") no-repeat center center fixed; /* Background image */
+    background-image: url("home.jpg") ;
+    background-size: cover;  /* Cover entire background */
+    color: white;  /* Text color */
+    
+}
+header {
+    background-color: rgba(51, 51, 51, 0.8);  /* Semi-transparent background */
+    padding: 15px;
+    text-align: center;
+    transition: background-color 0.3s ease;  /* Smooth transition */
+}
+
+header:hover {
+    background-color: rgba(51, 51, 51, 1);  /* Full opacity on hover */
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(68, 68, 68, 0.8);  /* Semi-transparent background */
+    display: flex;
+    justify-content: center;  /* Center the navbar */
+    transition: background-color 0.3s ease;  /* Smooth transition */
+}
+
+nav ul li {
+    margin: 0 15px;  /* Add some spacing between the items */
+}
+
+nav ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+    transition: color 0.3s ease;  /* Smooth color transition */
+}
+
+nav ul li a:hover {
+    background-color: rgba(17, 17, 17, 0.8);  /* Semi-transparent hover effect */
+    color: #ddd;
+    transform: scale(1.05);
+}
+
+nav ul .dropdown {
+    display: none;
+    position: absolute;
+    background-color: rgba(68, 68, 68, 0.9);  /* More opaque dropdown */
+    min-width: 160px;
+    z-index: 1;
+    transition: background-color 0.3s ease;  /* Smooth transition */
+}
+
+nav ul li:hover .dropdown {
+    display: block;
+}
+
+.dropdown li {
+    float: none;
+}
+
+.dropdown li a {
+    padding: 12px 16px;
+}
+
+main {
+    padding: 20px;
+    background-color:rgba(240, 240, 240, 0.41) ;  /* Semi-transparent background */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Soft shadow */
+}
+
+footer {
+    background-color: rgba(51, 51, 51, 0.8);  /* Semi-transparent background */
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    transition: background-color 0.3s ease;  /* Smooth transition */
+}
+
+footer:hover {
+    background-color: rgba(51, 51, 51, 1);  /* Full opacity on hover */
+    transform: scale(1.05);
+}
+h2{
+    color: #333;
+}
+
+/* Paragraph */
+.para-one { 
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-size: 16px;
+    line-height: 1.6; 
+    color: #333;
+    margin-bottom: 15px;
+    text-align: justify;
+    padding: 10px; 
+    background-color: rgba(249, 249, 249, 0.9);  /* Semi-transparent background */
+    border-left: 4px solid #007bff; 
+    border-radius: 5px; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Paragraph Styling */
+/*.para-two { 
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 18px;
+    line-height: 1.8;
+    color: #444; 
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f5f5f5;
+    border-left: 5px solid #007bff;
+    border-radius: 8px; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease; 
+}*/
+
+.p:hover {
+background-color: #e9ecef; /* Slightly darker background on hover */
+border-left-color: #0056b3; /* Darker border color on hover */
+transform: translateX(5px); /* Slight shift to the right on hover */
+}
+
+
+
+.product-card:hover {
+    transform: scale(1.05);  /* Slightly enlarge on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);  /* Stronger shadow on hover */
+}
+
+#chatbot { position: fixed;
+    bottom: 20px;
+    right: 20px;
+    max-width: 300px; 
+}
+ #chatbot-toggle { 
+    background-color: #007bff;
+    color: white; padding:
+    10px 15px; border: none;
+    border-radius: 5px;
+    cursor: pointer;
+} 
+#chatbot-interface { 
+    display: none;
+    background-color:
+    white; border:
+    1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px; overflow: hidden;
+} 
+#chatbot-interface.collapsed { 
+    display: block; 
+}
+#chatbot-interface .chat-header {
+    background-color: #007bff;
+    color: white; padding: 10px;
+    border-bottom: 1px solid #ddd; 
+} 
+#chatbot-interface .chat-body {
+    padding: 10px; height: 300px;
+    overflow-y: scroll; 
+} 
+#chatbot-interface .chat-footer {
+    padding: 10px; border-top: 1px solid #ddd; 
+}
+.features {
+        display: flex;
+        justify-content: space-around;
+        padding: 20px;
+    }
+    
+    .feature {
+        text-align: center;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color:rgba(240, 240, 240, 0.41) ;
+        margin: 10px;
+    }
+.feature h3 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    color: black;
+}
+.feature p {
+    font-size: 1rem;
+    color: #666;
+} 
+/* Profile Specific Styles */
+/* Profile Specific Styles */
+/* Header */
+header {
+    background-color: rgba(51, 51, 51, 0.8);
+    color: white;
+    padding: 15px;
+    position: relative; /* To position the profile icon absolutely within the header */
+}
+
+/* Navbar */
+
+
+
+
+/* Profile Specific Styles */
+.profile-icon {
+    position: absolute; /* Position absolutely within the header */
+    right: 15px; /* Align to the right */
+    top: 15px; /* Align vertically within the header */
+    font-size: 1.8em; /* Increase the size of the icon */
+    color: white; /* Icon color */
+    cursor: pointer; /* Change cursor on hover */
+}
+
+.profile-dropdown {
+    display: none; /* Hidden by default */
+    position: absolute;
+    right: 0; /* Align dropdown to the right */
+    background-color: #444; /* Background color for dropdown */
+    border: 1px solid #333; /* Border for dropdown */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    margin-top: 10px; /* Spacing from the profile icon */
+    min-width: 160px; /* Ensure the dropdown has a minimum width */
+    z-index: 1; /* Ensure it stays above other content */
+    flex-direction: column; /* Ensure the dropdown items stack vertically */
+    transition: background-color 0.3s; 
+}
+
+.profile-dropdown li {
+    list-style: none; /* Remove bullet points */
+}
+
+.profile-dropdown li a {
+    display: block; /* Full block links */
+    color: white; /* White text color */
+    padding: 10px ; /* Padding for links */
+    font-size: 0.6em; /* Decrease the font size */
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.profile-dropdown li a:hover {
+    background-color: #555; /* Change background on hover */
+    transform: scale(1.05);
+}
+
+/* Show dropdown on click */
+.profile-icon.open .profile-dropdown {
+    display: flex; /* Show dropdown as a flex container */
+}
+/* Form Styling */
+form {
+    background-color: rgba(255, 255, 255, 0.8); /* White background with opacity */
+    border: 1px solid #BDC3C7;  /* Light Grey */
+    border-radius: 10px;
+    margin: 0 auto;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: black;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"] {
+    border: 1px solid #BDC3C7;
+    border-radius: 5px;
+    display: block;
+    margin-bottom: 10px;
+    padding: 10px;
+    width: calc(100% - 20px);
+    box-sizing: border-box;
+}
+.login-container {
+    color:white;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+    padding: 40px;
+    margin: 100px auto;
+    width: 300px;
+}
+
+form button {
+    background-color: #F39C12;  /* Orange */
+    border: none;
+    border-radius: 5px;
+    color: black;
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+}
+
+.alr {
+    margin-top: 20px;
+    font-size: 16px;
+    text-align: center;
+}
+form button:hover {
+    background-color: #E67E22;
+}
+* {
+     transition: all 0.7s ease-in-out;
+}

@@ -23,6 +23,6 @@ urlpatterns = [
     path('', include('design.urls')),
     path("", include('product_recommendation.urls')),
     path("", include('room_designer.urls')),
-   # path("users/", include('users.urls')),
+    path('quiz/', include('quiz.urls')),
    # path("sensors/", include('sensors.urls')),
 ]

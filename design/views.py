@@ -25,6 +25,23 @@ def modern_bathroom(request):
     return render(request, 'modern_bathroom.html')
 
 
+def classic(request):
+    return render(request, 'classic.html')
+
+
+def classic_livingroom(request):
+    return render(request, 'classic_livingroom.html')
+
+def classic_bedroom(request):
+    return render(request, 'classic_bedroom.html')
+
+def classic_kitchen(request):
+    return render(request, 'classic_kitchen.html')
+
+def classic_bathroom(request):
+    return render(request, 'classic_bathroom.html')
+
+
 from django.core.validators import URLValidator
 from django.core.exceptions import ValidationError
 from django.shortcuts import render
@@ -80,8 +97,27 @@ def product_recommendation(request, product_name=None):
         except Exception as e:
             print(f"Error processing image: {e}")
 
-    # Generate recommendations based on detected products and dominant color
-    recommendations = get_recommendations(detected_products, dominant_color)
+    # Add product images and search URLs for Flipkart, Amazon, and Google Shopping
+    product_image_mapping = {
+        "chair": "/static/images/products/chair.jpg",
+        "potted plant": "/static/images/products/potted_plant.jpg",
+        "clock": "/static/images/products/clock.jpg",
+    }
+
+    for product in detected_products:
+        # Assign image URLs
+        product["image_url"] = product_image_mapping.get(
+            product["label"], "/static/images/products/default.jpg"
+        )
+
+        # Dynamically generate shopping URLs
+        search_query = product["label"].replace(" ", "+")  # Replace spaces with '+'
+        dominant_color_query = f"+{dominant_color[0]},{dominant_color[1]},{dominant_color[2]}" if dominant_color else ""
+        product["search_urls"] = {
+            "flipkart": f"https://www.flipkart.com/search?q={search_query}{dominant_color_query}",
+            "amazon": f"https://www.amazon.in/s?k={search_query}{dominant_color_query}",
+            "google_shopping": f"https://www.google.com/search?tbm=shop&q={search_query}{dominant_color_query}",
+        }
 
     # Prepare the context for rendering the template
     context = {
@@ -90,7 +126,6 @@ def product_recommendation(request, product_name=None):
         "annotated_image_url": annotated_image_url,
         "detected_products": detected_products,
         "dominant_color": f"rgb({dominant_color[0]}, {dominant_color[1]}, {dominant_color[2]})" if dominant_color else None,
-        "recommendations": recommendations,
     }
 
     return render(request, "product_recommendation.html", context)

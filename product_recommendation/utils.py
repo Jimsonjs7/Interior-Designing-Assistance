@@ -7,18 +7,17 @@ import matplotlib.pyplot as plt
 def detect_objects(image_path):
     """
     Detect objects in an image using YOLO, extract dominant colors for each detected object,
-    and generate Google Shopping links with color similarity.
+    and generate shopping links for Amazon, Flipkart, and Google Shopping.
 
     Args:
         image_path (str): Path to the input image.
 
     Returns:
-        tuple: A list of detected objects with Google Shopping links including color similarity,
-               and the path to the annotated image.
+        tuple: A list of detected objects with shopping links, and the path to the annotated image.
     """
     # Load the YOLO model
-    model = YOLO('yolov8n')  # Use YOLOv8 nano version
-    model.conf = 0.25  # Set confidence threshold (default is 0.25)
+    model = YOLO('yolov8n')  # YOLOv8 nano version
+    model.conf = 0.25  # Set confidence threshold
 
     # Perform object detection
     results = model(image_path)
@@ -31,7 +30,7 @@ def detect_objects(image_path):
             confidence = box.conf  # Confidence score
 
             # Extract bounding box coordinates
-            xyxy = box.xyxy.tolist()[0]  # [x1, y1, x2, y2]
+            xyxy = box.xyxy.tolist()[0]
 
             # Open the image and crop based on the bounding box
             img = Image.open(image_path)
@@ -45,17 +44,20 @@ def detect_objects(image_path):
             color_thief = ColorThief(cropped_img_path)
             dominant_color = color_thief.get_color(quality=1)  # RGB tuple
 
-            # Create a color-based Google Shopping query
-            color_query = f"{dominant_color[0]},{dominant_color[1]},{dominant_color[2]}"
-            search_url = f"https://www.flipkart.com/search?q={model.names[int(label)]}+color+{color_query}"
-
+            # Generate shopping URLs
+            search_term = f"{model.names[int(label)]} color {dominant_color[0]},{dominant_color[1]},{dominant_color[2]}"
+            amazon_url = f"https://www.amazon.in/s?k={search_term.replace(' ', '+')}"
+            flipkart_url = f"https://www.flipkart.com/search?q={search_term.replace(' ', '+')}"
+            google_shopping_url = f"https://www.google.com/search?tbm=shop&q={search_term.replace(' ', '+')}"
 
             # Add detection details
             detections.append({
                 'label': model.names[int(label)],
                 'confidence': float(confidence),
                 'coordinates': box.xywh.tolist(),  # Bounding box (x, y, width, height)
-                'search_url': search_url,
+                'amazon_url': amazon_url,
+                'flipkart_url': flipkart_url,
+                'google_shopping_url': google_shopping_url,
                 'dominant_color': f"rgb({dominant_color[0]}, {dominant_color[1]}, {dominant_color[2]})"
             })
 
@@ -68,11 +70,5 @@ def detect_objects(image_path):
     # Save the annotated image if results are available
     if isinstance(results, list) and len(results) > 0:
         results[0].save(annotated_image_path)  # Save the first result with annotations
-        if os.path.exists(annotated_image_path):
-            print(f"Annotated image saved at: {annotated_image_path}")
-        else:
-            print("Failed to save the annotated image!")
-    else:
-        print("No results to save.")
 
     return detections, annotated_image_path

@@ -6,6 +6,26 @@ from .utils import detect_objects
 import os
 import requests
 
+def results(request):
+    """
+    Renders the results page.
+    """
+    return render(request, 'results.html')
+
+def offline_recommendation(request):
+    """
+    Renders the offline recommendation page.
+    """
+    return render(request, 'offline_recommendation.html')
+
+
+def offline_map_recommendation(request):
+    """
+    Renders the offline map-based recommendation page.
+    """
+    return render(request, 'offline_map_recommendation.html')
+
+
 def online_recommendation(request):
     """
     Handles the online recommendation process by uploading an image,
@@ -51,20 +71,6 @@ def online_recommendation(request):
     })
 
 
-def offline_recommendation(request):
-    """
-    Renders the offline recommendation page.
-    """
-    return render(request, 'offline_recommendation.html')
-
-
-def offline_map_recommendation(request):
-    """
-    Renders the offline map-based recommendation page.
-    """
-    return render(request, 'offline_map_recommendation.html')
-
-
 def upload_image(request):
     """
     Handles image upload and sends the file to a Flask service for predictions.
@@ -92,11 +98,6 @@ def upload_image(request):
     return render(request, 'recommendation.html')
 
 
-def results(request):
-    """
-    Renders the results page.
-    """
-    return render(request, 'results.html')
 
 
 def upload_image_with_detections(request):

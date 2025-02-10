@@ -1,0 +1,226 @@
+{% extends "base.html" %}
+{% load static %}
+{% block 'title' %}Design Quiz {% endblock %}
+{% block 'content' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interior Design Quiz</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        .quiz-container {
+            width: 100%;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.3); /* Faded transparent inner box */
+            border-radius: 10px;
+            border: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for elegance */
+        }
+        
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .quiz-question {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.5); /* Faded transparent inner box */
+            border-radius: 5px;
+            border: none;
+        }
+        
+        .quiz-question p {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .quiz-options {
+            display: flex;
+            flex-direction: column; /* Ensure options are stacked */
+            gap: 10px; /* Space between options */
+        }
+        
+        .quiz-options label {
+            padding: 12px;
+            background: rgba(241, 241, 241, 0.5); /* Transparent quiz options */
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+        }
+        
+        .quiz-options label:hover {
+            background: rgba(224, 224, 224, 0.5);
+            transform: scale(1.02);
+        }
+        
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+        
+        button {
+            width: 100%;
+            padding: 15px 20px;
+            background:rgb(1, 5, 9);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s, transform 0.3s;
+        }
+        
+        button:hover {
+            background:rgb(1, 4, 8);
+            transform: scale(1.05);
+        }
+        
+        #result {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 1.2rem;
+            color:rgb(1, 6, 11);
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h2>Discover Your Interior Design Style</h2>
+        <form id="quizForm">
+            <!-- Question 1 -->
+            <div class="quiz-question">
+                <p>1. What is your favorite color palette?</p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q1" value="modern" required> Neutral tones</label>
+                    <label><input type="radio" name="q1" value="classic"> Bold and bright</label>
+                    <label><input type="radio" name="q1" value="minimalist"> Soft pastels</label>
+                    <label><input type="radio" name="q1" value="bohemian"> Earthy and natural</label>
+                </div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="quiz-question">
+                <p>2. How would you describe your ideal living room?</p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q2" value="modern" required> Sleek and modern</label>
+                    <label><input type="radio" name="q2" value="classic"> Elegant and timeless</label>
+                    <label><input type="radio" name="q2" value="minimalist"> Simple and clutter-free</label>
+                    <label><input type="radio" name="q2" value="bohemian"> Cozy and eclectic</label>
+                </div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="quiz-question">
+                <p>3. What type of furniture do you prefer?</p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q3" value="modern" required> Minimalistic and functional</label>
+                    <label><input type="radio" name="q3" value="classic"> Ornate and detailed</label>
+                    <label><input type="radio" name="q3" value="minimalist"> Simple and space-saving</label>
+                    <label><input type="radio" name="q3" value="bohemian"> Vintage and mix-and-match</label>
+                </div>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="quiz-question">
+                <p>4. What kind of lighting do you prefer?</p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q4" value="modern" required> Recessed or track lighting</label>
+                    <label><input type="radio" name="q4" value="classic"> Chandeliers or statement fixtures</label>
+                    <label><input type="radio" name="q4" value="minimalist"> Soft, natural lighting</label>
+                    <label><input type="radio" name="q4" value="bohemian"> Warm, ambient lights with lanterns</label>
+                </div>
+            </div>
+
+            <!-- Question 5 -->
+            <div class="quiz-question">
+                <p>5. Which type of flooring do you like?</p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q5" value="modern" required> Polished concrete or tiles</label>
+                    <label><input type="radio" name="q5" value="classic"> Hardwood flooring</label>
+                    <label><input type="radio" name="q5" value="minimalist"> Light-colored wood</label>
+                    <label><input type="radio" name="q5" value="bohemian"> Layered rugs on natural wood</label>
+                </div>
+            </div>
+
+            <!-- Question 6 -->
+            <div class="quiz-question">
+                <p>6. How do you feel about patterns?</p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q6" value="modern" required> Subtle geometric patterns</label>
+                    <label><input type="radio" name="q6" value="classic"> Intricate floral or damask patterns</label>
+                    <label><input type="radio" name="q6" value="minimalist"> Minimal or no patterns</label>
+                    <label><input type="radio" name="q6" value="bohemian"> Bold, layered patterns</label>
+                </div>
+            </div>
+
+            <!-- Question 7 -->
+            <div class="quiz-question">
+                <p>7. What accessory would complete your dream space?</p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q7" value="modern" required> A sleek sculpture or abstract art</label>
+                    <label><input type="radio" name="q7" value="classic"> A large ornate mirror</label>
+                    <label><input type="radio" name="q7" value="minimalist"> A simple vase with fresh flowers</label>
+                    <label><input type="radio" name="q7" value="bohemian"> A gallery wall of personal mementos</label>
+                </div>
+            </div>
+
+            <!-- Question 8 -->
+            <div class="quiz-question">
+                <p>8. What kind of textiles do you like in your space?</p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q8" value="modern" required> Clean lines and smooth textures</label>
+                    <label><input type="radio" name="q8" value="classic"> Plush fabrics and silk</label>
+                    <label><input type="radio" name="q8" value="minimalist"> Light and airy cottons</label>
+                    <label><input type="radio" name="q8" value="bohemian"> Layered and textured textiles</label>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit">Submit</button>
+        </form>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        document.getElementById('quizForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Gather selected answers
+            const formData = new FormData(this);
+            let answers = {};
+            formData.forEach((value, key) => {
+                answers[key] = value;
+            });
+
+            // Example logic to determine result
+            let result = "";
+            if (Object.values(answers).filter(val => val === "modern").length >= 4) {
+                result = "Your style is Modern!";
+            } else if (Object.values(answers).filter(val => val === "classic").length >= 4) {
+                result = "Your style is Classic!";
+            } else if (Object.values(answers).filter(val => val === "minimalist").length >= 4) {
+                result = "Your style is Minimalist!";
+            } else {
+                result = "Your style is Bohemian!";
+            }
+
+            // Display result
+            document.getElementById('result').innerText = result;
+        });
+    </script>
+</body>
+</html>
+{% endblock %}

@@ -9,6 +9,13 @@ urlpatterns = [
     path('modern_kitchen/', views.modern_kitchen, name='modern_kitchen'),
     path('modern_bathroom/', views.modern_bathroom, name='modern_bathroom'),
     path('modern_living-room-designs/', views.modern_living_room_designs, name='modern_living_room_designs'),
+
+    path('classic/', views.classic, name='classic'),
+    path('classic_bedroom/', views.classic_bedroom, name='classic_bedroom'),
+    path('classic_kitchen/', views.classic_kitchen, name='classic_kitchen'),
+    path('classic_bathroom/', views.classic_bathroom, name='classic_bathroom'),
+    path('classic_livingroom/', views.classic_livingroom, name='classic_livingroom'),
+
     path('product-recommendation/<str:product_name>/', views.product_recommendation, name='product_recommendation'),
     path('product-recommendation/', views.product_recommendation, name='product_recommendation_no_name'),
 
