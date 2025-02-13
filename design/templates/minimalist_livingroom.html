@@ -1,0 +1,170 @@
+{% extends "base.html" %}
+{% load static %}
+{% block 'title' %}Living Room Designs{% endblock %}
+{% block 'content' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Living Room Designs</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+    <style>
+        .designs-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .design {
+            width: 250px; /* Reduced width for smaller boxes */
+            height: 250px; /* Reduced height for smaller boxes */
+            overflow: hidden;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .design a {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .design img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            transform: scale(1.2); /* Slight zoom out effect */
+        }
+
+        .design:hover img {
+            transform: scale(1.1); /* Zoom in a bit on hover */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Living Room Designs</h1>
+    </header>
+    <div class="designs-gallery">
+        <div class="designs-gallery">
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'Living Room Design 1' %}?image_url={{ "https://www.home-designing.com/wp-content/uploads/2017/11/wide-open-space-beige-minimalist.jpg"|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2017/11/wide-open-space-beige-minimalist.jpg" alt="Living Room Design 1">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'Living Room Design 2' %}?image_url={{ 'https://www.home-designing.com/wp-content/uploads/2017/11/top-down-view-beige-minimalist-lounge.jpg'|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2017/11/top-down-view-beige-minimalist-lounge.jpg" alt="Living Room Design 2">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'Living Room Design 3' %}?image_url={{ 'https://www.home-designing.com/wp-content/uploads/2017/11/dark-grey-geometric-living-room-minimalist.jpg'|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2017/11/dark-grey-geometric-living-room-minimalist.jpg" alt="Living Room Design 3">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'Living Room Design 4' %}?image_url={{ 'https://www.home-designing.com/wp-content/uploads/2017/11/white-and-beige-minimalist-interior-600x338.jpg'|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2017/11/white-and-beige-minimalist-interior-600x338.jpg" alt="Living Room Design 4">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'Living Room Design 5' %}?image_url={{ 'https://www.home-designing.com/wp-content/uploads/2017/11/geometric-minimalism-tv-room-600x600.jpg'|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2017/11/geometric-minimalism-tv-room-600x600.jpg" alt="Living Room Design 5">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'Living Room Design 6' %}?image_url={{ 'https://www.home-designing.com/wp-content/uploads/2017/11/loft-grey-and-white-minimalist-600x300.jpg'|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2017/11/loft-grey-and-white-minimalist-600x300.jpg" alt="Living Room Design 6">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'Living Room Design 7' %}?image_url={{ 'https://www.home-designing.com/wp-content/uploads/2017/11/chinese-lanterns-minimalist-living-room-600x375.jpg'|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2017/11/chinese-lanterns-minimalist-living-room-600x375.jpg" alt="Living Room Design 7">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'Living Room Design 8' %}?image_url={{ 'https://www.home-designing.com/wp-content/uploads/2017/11/white-spacious-minimalist-interior-600x345.jpg'|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2017/11/white-spacious-minimalist-interior-600x345.jpg" alt="Living Room Design 8">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'Living Room Design 9' %}?image_url={{ 'https://www.home-designing.com/wp-content/uploads/2017/11/white-and-grey-romantic-minimalist-lounge-600x338.jpg'|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2017/11/white-and-grey-romantic-minimalist-lounge-600x338.jpg" alt="Living Room Design 9">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'Living Room Design 10' %}?image_url={{ 'https://www.home-designing.com/wp-content/uploads/2017/11/camera-light-disco-ball-minimalist-lounge-600x342.jpg'|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2017/11/camera-light-disco-ball-minimalist-lounge-600x342.jpg" alt="Living Room Design 10">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'Living Room Design 11' %}?image_url={{ 'https://www.home-designing.com/wp-content/uploads/2017/11/black-block-sofa-white-walls-minimalist-tv-room-600x300.jpg'|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2017/11/black-block-sofa-white-walls-minimalist-tv-room-600x300.jpg" alt="Living Room Design 11">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'Living Room Design 12' %}?image_url={{ 'https://www.home-designing.com/wp-content/uploads/2017/11/navy-rug-and-rafter-minimalist-room-600x600.jpg'|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2017/11/navy-rug-and-rafter-minimalist-room-600x600.jpg" alt="Living Room Design 12">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'Living Room Design 13' %}?image_url={{ 'https://www.home-designing.com/wp-content/uploads/2017/11/living-wall-circular-chandeliers-minimalist-house-600x288.jpg'|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2017/11/living-wall-circular-chandeliers-minimalist-house-600x288.jpg" alt="Living Room Design 13">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'Living Room Design 14' %}?image_url={{ 'https://www.home-designing.com/wp-content/uploads/2017/11/black-and-white-photographs-minimalist-lounge-600x392.jpg'|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2017/11/black-and-white-photographs-minimalist-lounge-600x392.jpg" alt="Living Room Design 14">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'Living Room Design 15' %}?image_url={{ 'https://www.home-designing.com/wp-content/uploads/2017/11/scandinavian-style-minimalist-lounge-600x450.jpg'|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2017/11/scandinavian-style-minimalist-lounge-600x450.jpg" alt="Living Room Design 15">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'Living Room Design 16' %}?image_url={{ 'https://www.home-designing.com/wp-content/uploads/2017/11/white-wall-blue-couch-pop-art-minimalism-600x763.jpg'|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2017/11/white-wall-blue-couch-pop-art-minimalism-600x763.jpg" alt="Living Room Design 16">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'Living Room Design 17' %}?image_url={{ 'https://www.home-designing.com/wp-content/uploads/2017/11/patterned-rug-modern-chandelier-new-apartment-600x565.jpg'|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2017/11/patterned-rug-modern-chandelier-new-apartment-600x565.jpg" alt="Living Room Design 17">
+                </a>
+            </div>
+        <div class="design">
+            <a href="{% url 'designs:product_recommendation' 'Living Room Design 18' %}?image_url={{ "https://www.home-designing.com/wp-content/uploads/2017/11/monochrome-minimalist-lounge-600x375.jpg" |urlencode }}">
+                <img src="https://www.home-designing.com/wp-content/uploads/2017/11/monochrome-minimalist-lounge-600x375.jpg" alt="Living Room Design 18">
+            </a>
+        </div>
+        <div class="design">
+            <a href="{% url 'designs:product_recommendation' 'Living Room Design 19' %}?image_url={{ "https://www.home-designing.com/wp-content/uploads/2017/11/custom-entertainment-centre-wooden-minimalist-600x338.jpg"|urlencode }}">
+                <img src="https://www.home-designing.com/wp-content/uploads/2017/11/custom-entertainment-centre-wooden-minimalist-600x338.jpg" alt="Living Room Design 19">
+            </a>
+        </div>
+        <div class="design">
+            <a href="{% url 'designs:product_recommendation' 'Living Room Design 20' %}?image_url={{ "https://www.home-designing.com/wp-content/uploads/2017/11/pea-green-sofa-industrial-living-space-600x400.jpg"|urlencode }}">
+                <img src="https://www.home-designing.com/wp-content/uploads/2017/11/pea-green-sofa-industrial-living-space-600x400.jpg" alt="Living Room Design 20">
+            </a>
+        </div>
+        <!-- 
+        <div class="design">
+            <a href="fhdhdhdf" data-lightbox="living-room">
+                <img src="fhdhdhdf" alt="Living Room Design ">
+            </a>
+        </div>
+        -->
+
+        <!-- Add more living room designs as needed -->
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+</body>
+</html>
+{% endblock %}

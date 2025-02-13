@@ -1,0 +1,170 @@
+{% extends "base.html" %}
+{% load static %}
+{% block 'title' %}Bedroom Designs{% endblock %}
+{% block 'content' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bedroom Designs</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+    <style>
+        .designs-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .design {
+            width: 250px; /* Reduced width for smaller boxes */
+            height: 250px; /* Reduced height for smaller boxes */
+            overflow: hidden;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .design a {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .design img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            transform: scale(1.2); /* Slight zoom out effect */
+        }
+
+        .design:hover img {
+            transform: scale(1.1); /* Zoom in a bit on hover */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Kitchen Designs</h1>
+    </header>
+    <div class="designs-gallery">
+        <div class="designs-gallery">
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'kitchen Design 1' %}?image_url={{ "https://i.pinimg.com/474x/bb/49/a6/bb49a6dffe1539de63f01a6a72241ca7.jpg"|urlencode }}">
+                    <img src="https://i.pinimg.com/474x/bb/49/a6/bb49a6dffe1539de63f01a6a72241ca7.jpg" alt="Living Room Design 1">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'kitchen Design 2' %}?image_url={{ 'https://i.pinimg.com/474x/23/29/2c/23292c746626754384bcd762f2b7abf6.jpg'|urlencode }}">
+                    <img src="https://i.pinimg.com/474x/23/29/2c/23292c746626754384bcd762f2b7abf6.jpg" alt="Living Room Design 2">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'kitchen Design 3' %}?image_url={{ 'https://i.pinimg.com/474x/c2/e7/db/c2e7dba446d54eb603faf6aa8932e054.jpg'|urlencode }}">
+                    <img src="https://i.pinimg.com/474x/c2/e7/db/c2e7dba446d54eb603faf6aa8932e054.jpg" alt="Living Room Design 3">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'kitchen Design 4' %}?image_url={{ 'https://www.thecraftyhacks.com/wp-content/uploads/2024/05/45-Boho-Kitchen-Decor-Ideas-3.jpg'|urlencode }}">
+                    <img src="https://www.thecraftyhacks.com/wp-content/uploads/2024/05/45-Boho-Kitchen-Decor-Ideas-3.jpg" alt="Living Room Design 4">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'kitchen Design 5' %}?image_url={{ 'https://i.pinimg.com/474x/29/68/1d/29681db24e3a559721097411c1625c22.jpg'|urlencode }}">
+                    <img src="https://i.pinimg.com/474x/29/68/1d/29681db24e3a559721097411c1625c22.jpg" alt="Living Room Design 5">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'kitchen Design 6' %}?image_url={{ 'https://i.pinimg.com/474x/6e/9c/b4/6e9cb41dcd267feee9138b5989b76bf3.jpg'|urlencode }}">
+                    <img src="https://i.pinimg.com/474x/6e/9c/b4/6e9cb41dcd267feee9138b5989b76bf3.jpg" alt="Living Room Design 6">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'kitchen Design 7' %}?image_url={{ 'https://i.pinimg.com/474x/0d/c0/c7/0dc0c7976b10607e7a502c0e029c23d0.jpg'|urlencode }}">
+                    <img src="https://i.pinimg.com/474x/0d/c0/c7/0dc0c7976b10607e7a502c0e029c23d0.jpg" alt="Living Room Design 7">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'kitchen Design 8' %}?image_url={{ 'https://i.pinimg.com/474x/48/c6/34/48c634889c1d8f2c89fd60cb78c45327.jpg'|urlencode }}">
+                    <img src="https://i.pinimg.com/474x/48/c6/34/48c634889c1d8f2c89fd60cb78c45327.jpg" alt="Living Room Design 8">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'kitchen Design 9' %}?image_url={{ 'https://i.pinimg.com/474x/5a/4d/20/5a4d201b90dfdcad9dde856f594a57b9.jpg'|urlencode }}">
+                    <img src="https://i.pinimg.com/474x/5a/4d/20/5a4d201b90dfdcad9dde856f594a57b9.jpg" alt="Living Room Design 9">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'kitchen Design 10' %}?image_url={{ 'https://i.pinimg.com/474x/23/14/a2/2314a28ea4f72db447ac899566b6be6f.jpg'|urlencode }}">
+                    <img src="https://i.pinimg.com/474x/23/14/a2/2314a28ea4f72db447ac899566b6be6f.jpg" alt="Living Room Design 10">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'kitchen Design 11' %}?image_url={{ 'https://i.pinimg.com/474x/63/56/d5/6356d5717390eada8649bfcdb95d4f20.jpg'|urlencode }}">
+                    <img src="https://i.pinimg.com/474x/63/56/d5/6356d5717390eada8649bfcdb95d4f20.jpg" alt="Living Room Design 11">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'kitchen Design 12' %}?image_url={{ 'https://i.pinimg.com/474x/5e/44/c1/5e44c17cdd61b81a09d50fa8fb4ab150.jpg'|urlencode }}">
+                    <img src="https://i.pinimg.com/474x/5e/44/c1/5e44c17cdd61b81a09d50fa8fb4ab150.jpg" alt="Living Room Design 12">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'kitchen Design 13' %}?image_url={{ 'https://i.pinimg.com/474x/9e/27/45/9e2745543daea9fac54fb96d7d5df1a2.jpg'|urlencode }}">
+                    <img src="https://i.pinimg.com/474x/9e/27/45/9e2745543daea9fac54fb96d7d5df1a2.jpg" alt="Living Room Design 13">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'kitchen Design 14' %}?image_url={{ 'https://i.pinimg.com/474x/f5/bb/45/f5bb456963bcd543329703aa3c05b2d3.jpg'|urlencode }}">
+                    <img src="https://i.pinimg.com/474x/f5/bb/45/f5bb456963bcd543329703aa3c05b2d3.jpg" alt="Living Room Design 14">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'kitchen Design 15' %}?image_url={{ 'https://i.pinimg.com/474x/50/a7/58/50a758a382cc7643db4ddc03a3e3f228.jpg'|urlencode }}">
+                    <img src="https://i.pinimg.com/474x/50/a7/58/50a758a382cc7643db4ddc03a3e3f228.jpg" alt="Living Room Design 15">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'kitchen Design 16' %}?image_url={{ 'https://i.pinimg.com/474x/74/7b/1e/747b1ea7bec201b4602ba738369024d8.jpg'|urlencode }}">
+                    <img src="https://i.pinimg.com/474x/74/7b/1e/747b1ea7bec201b4602ba738369024d8.jpg" alt="Living Room Design 16">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'kitchen Design 17' %}?image_url={{ 'https://i.pinimg.com/474x/18/1b/ca/181bcab61c04b1fe9fac0e65dd47afea.jpg'|urlencode }}">
+                    <img src="https://i.pinimg.com/474x/18/1b/ca/181bcab61c04b1fe9fac0e65dd47afea.jpg" alt="Living Room Design 17">
+                </a>
+            </div>
+        <div class="design">
+            <a href="{% url 'designs:product_recommendation' 'kitchen Design 18' %}?image_url={{ "https://i.pinimg.com/474x/c2/f6/ec/c2f6ec124407fd5d4eca5e95d48c915b.jpg" |urlencode }}">
+                <img src="https://i.pinimg.com/474x/c2/f6/ec/c2f6ec124407fd5d4eca5e95d48c915b.jpg" alt="Living Room Design 18">
+            </a>
+        </div>
+        <div class="design">
+            <a href="{% url 'designs:product_recommendation' 'kitchen Design 19' %}?image_url={{ "https://i.pinimg.com/474x/1c/0f/79/1c0f79f28c482a7a15f39d6e2287e02d.jpg"|urlencode }}">
+                <img src="https://i.pinimg.com/474x/1c/0f/79/1c0f79f28c482a7a15f39d6e2287e02d.jpg" alt="Living Room Design 19">
+            </a>
+        </div>
+        <div class="design">
+            <a href="{% url 'designs:product_recommendation' 'kitchen Design 20' %}?image_url={{ "https://i.pinimg.com/474x/44/54/93/44549375fb5b0509e8331530c6b46762.jpg"|urlencode }}">
+                <img src="https://i.pinimg.com/474x/44/54/93/44549375fb5b0509e8331530c6b46762.jpg" alt="Living Room Design 20">
+            </a>
+        </div>
+        <!-- 
+        <div class="design">
+            <a href="fhdhdhdf" data-lightbox="living-room">
+                <img src="fhdhdhdf" alt="Living Room Design ">
+            </a>
+        </div>
+        -->
+
+        <!-- Add more living room designs as needed -->
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+</body>
+</html>
+{% endblock %}

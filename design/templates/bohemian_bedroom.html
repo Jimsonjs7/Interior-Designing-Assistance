@@ -1,0 +1,170 @@
+{% extends "base.html" %}
+{% load static %}
+{% block 'title' %}Bedroom Designs{% endblock %}
+{% block 'content' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bedroom Designs</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+    <style>
+        .designs-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .design {
+            width: 250px; /* Reduced width for smaller boxes */
+            height: 250px; /* Reduced height for smaller boxes */
+            overflow: hidden;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .design a {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .design img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            transform: scale(1.2); /* Slight zoom out effect */
+        }
+
+        .design:hover img {
+            transform: scale(1.1); /* Zoom in a bit on hover */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Bed Room Designs</h1>
+    </header>
+    <div class="designs-gallery">
+        <div class="designs-gallery">
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'Bed Room Design 1' %}?image_url={{ "https://www.home-designing.com/wp-content/uploads/2022/08/cozy-boho-teenage-bedroom.jpg"|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2022/08/cozy-boho-teenage-bedroom.jpg" alt="Living Room Design 1">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'Bed Room Design 2' %}?image_url={{ 'https://www.home-designing.com/wp-content/uploads/2022/08/boho-bedroom-rug.jpg'|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2022/08/boho-bedroom-rug.jpg" alt="Living Room Design 2">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'Bed Room Design 3' %}?image_url={{ 'https://www.home-designing.com/wp-content/uploads/2022/08/boho-bedroom-wall-decor.jpg'|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2022/08/boho-bedroom-wall-decor.jpg" alt="Living Room Design 3">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'Bed Room Design 4' %}?image_url={{ 'https://www.home-designing.com/wp-content/uploads/2022/08/boho-bedroom-light-fixtures.jpg'|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2022/08/boho-bedroom-light-fixtures.jpg" alt="Living Room Design 4">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'Bed Room Design 5' %}?image_url={{ 'https://www.home-designing.com/wp-content/uploads/2022/08/boho-bedroom-furniture-set-600x429.jpg'|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2022/08/boho-bedroom-furniture-set-600x429.jpg" alt="Living Room Design 5">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'Bed Room Design 6' %}?image_url={{ 'https://www.home-designing.com/wp-content/uploads/2022/08/cozy-boho-bedroom-600x338.jpg'|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2022/08/cozy-boho-bedroom-600x338.jpg" alt="Living Room Design 6">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'Bed Room Design 7' %}?image_url={{ 'https://www.home-designing.com/wp-content/uploads/2022/08/boho-teenage-bedroom-600x450.jpg'|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2022/08/boho-teenage-bedroom-600x450.jpg" alt="Living Room Design 7">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'Bed Room Design 8' %}?image_url={{ 'https://www.home-designing.com/wp-content/uploads/2022/08/boho-chic-bedroom-600x500.jpg'|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2022/08/boho-chic-bedroom-600x500.jpg" alt="Living Room Design 8">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'Bed Room Design 9' %}?image_url={{ 'https://www.home-designing.com/wp-content/uploads/2022/08/minimal-boho-bedroom-600x420.jpg'|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2022/08/minimal-boho-bedroom-600x420.jpg" alt="Living Room Design 9">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'Bed Room Design 10' %}?image_url={{ 'https://www.home-designing.com/wp-content/uploads/2022/08/boho-bedroom-rugs-600x306.jpg'|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2022/08/boho-bedroom-rugs-600x306.jpg" alt="Living Room Design 10">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'Bed Room Design 11' %}?image_url={{ 'https://www.home-designing.com/wp-content/uploads/2022/08/boho-glam-bedroom-600x417.jpg'|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2022/08/boho-glam-bedroom-600x417.jpg" alt="Living Room Design 11">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'Bed Room Design 12' %}?image_url={{ 'https://www.home-designing.com/wp-content/uploads/2022/08/boho-themed-bedroom-600x338.jpg'|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2022/08/boho-themed-bedroom-600x338.jpg" alt="Living Room Design 12">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'Bed Room Design 13' %}?image_url={{ 'https://www.home-designing.com/wp-content/uploads/2022/08/boho-burnt-orange-bedroom-600x450.jpg'|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2022/08/boho-burnt-orange-bedroom-600x450.jpg" alt="Living Room Design 13">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'Bed Room Design 14' %}?image_url={{ 'https://www.home-designing.com/wp-content/uploads/2022/08/boho-inspired-bedroom-600x418.jpg'|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2022/08/boho-inspired-bedroom-600x418.jpg" alt="Living Room Design 14">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'Bed Room Design 15' %}?image_url={{ 'https://www.home-designing.com/wp-content/uploads/2022/08/dark-boho-bedroom-600x450.jpg'|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2022/08/dark-boho-bedroom-600x450.jpg" alt="Living Room Design 15">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'Bed Room Design 16' %}?image_url={{ 'https://www.home-designing.com/wp-content/uploads/2022/08/modern-boho-bedroom-600x424.jpg'|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2022/08/modern-boho-bedroom-600x424.jpg" alt="Living Room Design 16">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'Bed Room Design 17' %}?image_url={{ 'https://www.home-designing.com/wp-content/uploads/2022/08/boho-bedroom-decor-ideas-600x715.jpg'|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2022/08/boho-bedroom-decor-ideas-600x715.jpg" alt="Living Room Design 17">
+                </a>
+            </div>
+        <div class="design">
+            <a href="{% url 'designs:product_recommendation' 'Bed Room Design 18' %}?image_url={{ "https://www.home-designing.com/wp-content/uploads/2022/08/bedroom-decor-ideas-boho-600x338.jpg" |urlencode }}">
+                <img src="https://www.home-designing.com/wp-content/uploads/2022/08/bedroom-decor-ideas-boho-600x338.jpg" alt="Living Room Design 18">
+            </a>
+        </div>
+        <div class="design">
+            <a href="{% url 'designs:product_recommendation' 'Bed Room Design 19' %}?image_url={{ "https://www.home-designing.com/wp-content/uploads/2022/08/minimalist-boho-bedroom-600x400.jpg"|urlencode }}">
+                <img src="https://www.home-designing.com/wp-content/uploads/2022/08/minimalist-boho-bedroom-600x400.jpg" alt="Living Room Design 19">
+            </a>
+        </div>
+        <div class="design">
+            <a href="{% url 'designs:product_recommendation' 'Bed Room Design 20' %}?image_url={{ "https://www.home-designing.com/wp-content/uploads/2022/08/boho-bedroom-ideas-600x390.jpg"|urlencode }}">
+                <img src="https://www.home-designing.com/wp-content/uploads/2022/08/boho-bedroom-ideas-600x390.jpg" alt="Living Room Design 20">
+            </a>
+        </div>
+        <!-- 
+        <div class="design">
+            <a href="fhdhdhdf" data-lightbox="living-room">
+                <img src="fhdhdhdf" alt="Living Room Design ">
+            </a>
+        </div>
+        -->
+
+        <!-- Add more living room designs as needed -->
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+</body>
+</html>
+{% endblock %}

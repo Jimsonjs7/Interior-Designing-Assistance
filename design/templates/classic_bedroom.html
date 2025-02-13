@@ -1,0 +1,170 @@
+{% extends "base.html" %}
+{% load static %}
+{% block 'title' %}Bedroom Designs{% endblock %}
+{% block 'content' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bedroom Designs</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+    <style>
+        .designs-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .design {
+            width: 250px; /* Reduced width for smaller boxes */
+            height: 250px; /* Reduced height for smaller boxes */
+            overflow: hidden;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .design a {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .design img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            transform: scale(1.2); /* Slight zoom out effect */
+        }
+
+        .design:hover img {
+            transform: scale(1.1); /* Zoom in a bit on hover */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Bed Room Designs</h1>
+    </header>
+    <div class="designs-gallery">
+        <div class="designs-gallery">
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'Bed Room Design 1' %}?image_url={{ "https://www.home-designing.com/wp-content/uploads/2022/11/white-upholstered-bed-frame-with-cropped-headboard-corners-simple-minimalistic-customizable-bedroom-decor-low-profile-platform-beds-for-sale-online-minimalist-modern-furniture.jpg"|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2022/11/white-upholstered-bed-frame-with-cropped-headboard-corners-simple-minimalistic-customizable-bedroom-decor-low-profile-platform-beds-for-sale-online-minimalist-modern-furniture.jpg" alt="Living Room Design 1">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'Bed Room Design 2' %}?image_url={{ 'https://www.home-designing.com/wp-content/uploads/2022/11/modern-white-faux-leather-with-button-tufted-headboard-clean-lines-minimalist-contemporary-bedroom-decor-ideas-and-inspiration-tapered-black-legs-glam-furniture-for-bedrooms-full.jpg'|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2022/11/modern-white-faux-leather-with-button-tufted-headboard-clean-lines-minimalist-contemporary-bedroom-decor-ideas-and-inspiration-tapered-black-legs-glam-furniture-for-bedrooms-full.jpg" alt="Living Room Design 2">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'Bed Room Design 3' %}?image_url={{ 'https://www.home-designing.com/wp-content/uploads/2022/11/white-upholstered-bed-frame-with-cropped-headboard-corners-simple-minimalistic-customizable-bedroom-decor-low-profile-platform-beds-for-sale-online-minimalist-modern-furniture.jpg'|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2022/11/white-upholstered-bed-frame-with-cropped-headboard-corners-simple-minimalistic-customizable-bedroom-decor-low-profile-platform-beds-for-sale-online-minimalist-modern-furniture.jpg" alt="Living Room Design 3">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'Bed Room Design 4' %}?image_url={{ 'https://www.home-designing.com/wp-content/uploads/2022/11/velvet-upholstered-white-bed-frame-with-channel-tufting-on-the-headboard-and-footboard-tapered-golden-legs-unique-glam-furniture-ideas-for-high-end-bedroom-decor-themes-600x517.jpg'|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2022/11/velvet-upholstered-white-bed-frame-with-channel-tufting-on-the-headboard-and-footboard-tapered-golden-legs-unique-glam-furniture-ideas-for-high-end-bedroom-decor-themes-600x517.jpg" alt="Living Room Design 4">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'Bed Room Design 5' %}?image_url={{ 'https://www.home-designing.com/wp-content/uploads/2022/11/white-platform-bed-frame-with-wide-border-low-profile-bedroom-furniture-for-sale-online-clean-white-upholstery-minimalist-contemporary-decor-theme-rounded-edges-luxury-beds-online-600x599.jpg'|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2022/11/white-platform-bed-frame-with-wide-border-low-profile-bedroom-furniture-for-sale-online-clean-white-upholstery-minimalist-contemporary-decor-theme-rounded-edges-luxury-beds-online-600x599.jpg" alt="Living Room Design 5">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'Bed Room Design 6' %}?image_url={{ 'https://www.home-designing.com/wp-content/uploads/2022/11/white-bed-frame-full-size-construction-with-headboard-upholstered-in-beige-with-tapered-wooden-legs-mid-century-modern-bedroom-furniture-for-sale-online-cheap-amazon-fast-shipping-600x600.jpg'|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2022/11/white-bed-frame-full-size-construction-with-headboard-upholstered-in-beige-with-tapered-wooden-legs-mid-century-modern-bedroom-furniture-for-sale-online-cheap-amazon-fast-shipping-600x600.jpg" alt="Living Room Design 6">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'Bed Room Design 7' %}?image_url={{ 'https://www.home-designing.com/wp-content/uploads/2022/11/cute-white-platform-bed-frame-queen-with-velvet-upholstery-scalloped-backrest-design-tapered-golden-legs-unique-glam-furniture-ideas-for-bedroom-luxury-decor-for-sale-on-amazon-600x508.jpg'|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2022/11/cute-white-platform-bed-frame-queen-with-velvet-upholstery-scalloped-backrest-design-tapered-golden-legs-unique-glam-furniture-ideas-for-bedroom-luxury-decor-for-sale-on-amazon-600x508.jpg" alt="Living Room Design 7">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'Bed Room Design 8' %}?image_url={{ 'https://www.home-designing.com/wp-content/uploads/2022/11/multipurpose-white-bed-frame-with-storage-unique-space-saving-furniture-ideas-for-bedroom-storage-inspiration-slide-out-drawers-with-basket-button-tufting-luxury-beds-online-600x600.jpg'|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2022/11/multipurpose-white-bed-frame-with-storage-unique-space-saving-furniture-ideas-for-bedroom-storage-inspiration-slide-out-drawers-with-basket-button-tufting-luxury-beds-online-600x600.jpg" alt="Living Room Design 8">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'Bed Room Design 9' %}?image_url={{ 'https://www.home-designing.com/wp-content/uploads/2022/11/modern-white-upholstered-bed-with-LED-strip-remote-control-mood-lighting-for-bedroom-diamond-tufted-upholstery-with-diamond-studs-pull-out-storage-drawers-multipurpose-600x600.jpg'|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2022/11/modern-white-upholstered-bed-with-LED-strip-remote-control-mood-lighting-for-bedroom-diamond-tufted-upholstery-with-diamond-studs-pull-out-storage-drawers-multipurpose-600x600.jpg" alt="Living Room Design 9">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'Bed Room Design 10' %}?image_url={{ 'https://www.home-designing.com/wp-content/uploads/2022/11/white-bed-frame-with-drawers-unique-transitional-bedroom-decor-inspiration-classic-beds-for-sale-online-upholstered-fabric-tufted-with-pull-out-drawers-stylish-storage-600x600.jpg'|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2022/11/white-bed-frame-with-drawers-unique-transitional-bedroom-decor-inspiration-classic-beds-for-sale-online-upholstered-fabric-tufted-with-pull-out-drawers-stylish-storage-600x600.jpg" alt="Living Room Design 10">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'Bed Room Design 11' %}?image_url={{ 'https://www.home-designing.com/wp-content/uploads/2022/11/white-bed-frame-with-boucle-upholstery-geometric-details-soft-Scandinavian-bedroom-decor-inspiration-ideas-for-cozy-beds-oversized-headboard-designer-bedroom-furniture-for-sale-600x780.jpg'|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2022/11/white-bed-frame-with-boucle-upholstery-geometric-details-soft-Scandinavian-bedroom-decor-inspiration-ideas-for-cozy-beds-oversized-headboard-designer-bedroom-furniture-for-sale-600x780.jpg" alt="Living Room Design 11">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'Bed Room Design 12' %}?image_url={{ 'https://www.home-designing.com/wp-content/uploads/2022/11/upholstered-queen-bed-frame-white-cool-postmodern-bedroom-furniture-for-sale-online-ivory-upholstery-smooth-minimalist-creative-decor-inspiration-for-bedrooms-headboard-footboard-600x716.jpg'|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2022/11/upholstered-queen-bed-frame-white-cool-postmodern-bedroom-furniture-for-sale-online-ivory-upholstery-smooth-minimalist-creative-decor-inspiration-for-bedrooms-headboard-footboard-600x716.jpg" alt="Living Room Design 12">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'Bed Room Design 13' %}?image_url={{ 'https://www.home-designing.com/wp-content/uploads/2010/11/Contemporary-Bedroom-Modern-Mexican-style-582x472.jpg'|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2010/11/Contemporary-Bedroom-Modern-Mexican-style-582x472.jpg" alt="Living Room Design 13">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'Bed Room Design 14' %}?image_url={{ 'https://www.home-designing.com/wp-content/uploads/2010/11/Country-living-Beautiful-bedroom-fuschia-area-rug-582x625.jpg'|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2010/11/Country-living-Beautiful-bedroom-fuschia-area-rug-582x625.jpg" alt="Living Room Design 14">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'Bed Room Design 15' %}?image_url={{ 'https://www.home-designing.com/wp-content/uploads/2010/11/Country-living-shabby-chic-Bedroom-582x566.jpg'|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2010/11/Country-living-shabby-chic-Bedroom-582x566.jpg" alt="Living Room Design 15">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'Bed Room Design 16' %}?image_url={{ 'https://www.home-designing.com/wp-content/uploads/2010/11/Glamorous-bedroom-ornate-fireplace-582x430.jpg'|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2010/11/Glamorous-bedroom-ornate-fireplace-582x430.jpg" alt="Living Room Design 16">
+                </a>
+            </div>
+            <div class="design">
+                <a href="{% url 'designs:product_recommendation' 'Bed Room Design 17' %}?image_url={{ 'https://www.home-designing.com/wp-content/uploads/2010/11/Mediteranean-style-bedroom-faux-finish-paint-582x320.jpg'|urlencode }}">
+                    <img src="https://www.home-designing.com/wp-content/uploads/2010/11/Mediteranean-style-bedroom-faux-finish-paint-582x320.jpg" alt="Living Room Design 17">
+                </a>
+            </div>
+        <div class="design">
+            <a href="{% url 'designs:product_recommendation' 'Bed Room Design 18' %}?image_url={{ "https://www.home-designing.com/wp-content/uploads/2010/11/Traditional-old-world-bedroom-crown-molding-582x471.jpg" |urlencode }}">
+                <img src="https://www.home-designing.com/wp-content/uploads/2010/11/Traditional-old-world-bedroom-crown-molding-582x471.jpg" alt="Living Room Design 18">
+            </a>
+        </div>
+        <div class="design">
+            <a href="{% url 'designs:product_recommendation' 'Bed Room Design 19' %}?image_url={{ "https://www.home-designing.com/wp-content/uploads/2022/09/brown-and-white-neoclassical-bedroom-600x480.jpg"|urlencode }}">
+                <img src="https://www.home-designing.com/wp-content/uploads/2022/09/brown-and-white-neoclassical-bedroom-600x480.jpg" alt="Living Room Design 19">
+            </a>
+        </div>
+        <div class="design">
+            <a href="{% url 'designs:product_recommendation' 'Bed Room Design 20' %}?image_url={{ "https://www.home-designing.com/wp-content/uploads/2022/09/green-accent-neoclassical-bedroom-600x480.jpg"|urlencode }}">
+                <img src="https://www.home-designing.com/wp-content/uploads/2022/09/green-accent-neoclassical-bedroom-600x480.jpg" alt="Living Room Design 20">
+            </a>
+        </div>
+        <!-- 
+        <div class="design">
+            <a href="fhdhdhdf" data-lightbox="living-room">
+                <img src="fhdhdhdf" alt="Living Room Design ">
+            </a>
+        </div>
+        -->
+
+        <!-- Add more living room designs as needed -->
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+</body>
+</html>
+{% endblock %}

@@ -58,6 +58,14 @@ def register(request):
             messages.error(request, "Username already exists")
     return render(request, 'register.html')
 
+def logout(request):
+    if 'user_id' in request.session:
+        del request.session['user_id']
+        del request.session['username']
+        messages.success(request, 'You have been logged out')
+    return redirect('login')  # Redirect to login page
+
+
 
 @login_required
 def viewprofile(request):

@@ -2,7 +2,7 @@
 {% block title %}Login{% endblock %}
 {% block 'content' %}
 <div class="form-container">
-        <center>
+    <center>
         <form method="POST">
             {% csrf_token %}
             <div>
@@ -16,9 +16,27 @@
             <div>
                 <button type="submit">Login</button>
                 <br><br>
-                <b>Don't have an account? <a href={% url "register" %}>Sign up</a></b>
+                <b>Don't have an account? <a href="{% url 'register' %}">Sign up</a></b>
             </div>
         </form>
-        </center>
+    </center>
 </div>
+
+<!-- Messages -->
+{% if messages %}
+<div id="popup-message" style="display: none; position: fixed; top: 20%; left: 50%; transform: translate(-50%, -20%); z-index: 9999; background: #f8d7da; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); color: #721c24; text-align: center;">
+    <p>{% for message in messages %}{{ message }}{% endfor %}</p>
+    <button onclick="closePopup()" style="margin-top: 10px; background: #721c24; color: white; padding: 5px 10px; border: none; border-radius: 5px; cursor: pointer;">Close</button>
+</div>
+
+<script>
+    // Display the popup if it exists
+    document.getElementById('popup-message').style.display = 'block';
+
+    // Close popup function
+    function closePopup() {
+        document.getElementById('popup-message').style.display = 'none';
+    }
+</script>
+{% endif %}
 {% endblock %}

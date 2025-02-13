@@ -6,7 +6,7 @@ from PIL import Image
 from io import BytesIO
 from .utils import detect_objects, get_dominant_color, get_recommendations
 import os
-
+##
 
 def modern(request):
     return render(request, 'modern.html')
@@ -23,8 +23,37 @@ def modern_kitchen(request):
 
 def modern_bathroom(request):
     return render(request, 'modern_bathroom.html')
+##
+def minimalist(request):
+    return render(request, 'minimalist.html')
 
+def minimalist_livingroom(request):
+    return render(request, 'minimalist_livingroom.html')
 
+def minimalist_bedroom(request):
+    return render(request, 'minimalist_bedroom.html')
+
+def minimalist_kitchen(request):
+    return render(request, 'minimalist_kitchen.html')
+
+def minimalist_bathroom(request):
+    return render(request, 'minimalist_bathroom.html')
+##
+def bohemian(request):
+    return render(request, 'bohemian.html')
+
+def bohemian_livingroom(request):
+    return render(request, 'bohemian_livingroom.html')
+
+def bohemian_bedroom(request):
+    return render(request, 'bohemian_bedroom.html')
+
+def bohemian_kitchen(request):
+    return render(request, 'bohemian_kitchen.html')
+
+def bohemian_bathroom(request):
+    return render(request, 'bohemian_bathroom.html')
+##
 def classic(request):
     return render(request, 'classic.html')
 

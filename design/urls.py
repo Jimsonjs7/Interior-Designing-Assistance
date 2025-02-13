@@ -16,6 +16,18 @@ urlpatterns = [
     path('classic_bathroom/', views.classic_bathroom, name='classic_bathroom'),
     path('classic_livingroom/', views.classic_livingroom, name='classic_livingroom'),
 
+    path('minimalist/', views.minimalist, name='minimalist'),
+    path('minimalist_bedroom/', views.minimalist_bedroom, name='minimalist_bedroom'),
+    path('minimalist_kitchen/', views.minimalist_kitchen, name='minimalist_kitchen'),
+    path('minimalist_bathroom/', views.minimalist_bathroom, name='minimalist_bathroom'),
+    path('minimalist_livingroom/', views.minimalist_livingroom, name='minimalist_livingroom'),
+
+    path('bohemian/', views.bohemian, name='bohemian'),
+    path('bohemian_bedroom/', views.bohemian_bedroom, name='bohemian_bedroom'),
+    path('bohemian_kitchen/', views.bohemian_kitchen, name='bohemian_kitchen'),
+    path('bohemian_bathroom/', views.bohemian_bathroom, name='bohemian_bathroom'),
+    path('bohemian_livingroom/', views.bohemian_livingroom, name='bohemian_livingroom'),
+
     path('product-recommendation/<str:product_name>/', views.product_recommendation, name='product_recommendation'),
     path('product-recommendation/', views.product_recommendation, name='product_recommendation_no_name'),
 

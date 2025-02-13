@@ -290,6 +290,16 @@ nav ul li a:hover {
 .profile-icon.open .profile-dropdown {
     display: flex; /* Show dropdown as a flex container */
 }
+
+
+
+
+
+
+
+
+
+
 /* Form Styling */
 form {
     background-color: rgba(255, 255, 255, 0.8); /* White background with opacity */

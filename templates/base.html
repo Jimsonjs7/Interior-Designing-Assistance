@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block 'title' %} Interior Design Home{% endblock  %}</title>
-    <link rel="stylesheet" href="{% static "styles.css" %}">
+    <link rel="stylesheet" href="{% static "style.css" %}">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="{% static 'custom-styles.css' %}">
 </head>
@@ -13,15 +13,16 @@
     <header>
         <h1 style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);">InterIm Assistant</h1>
         <nav>
+            <div class="navbar-left">
             <ul>
                 <li><a href={% url 'home' %}>Home</a></li>
                 <li>
                     <a href="#">Designs</a>
                     <ul class="dropdown">
                         <li><a href="{% url 'designs:modern' %}">Modern</a></li>
-                        <li><a href="classic.html">Classic</a></li>
-                        <li><a href="minimalist.html">Minimalist</a></li>
-                        <li><a href="bohemian.html">Bohemian</a></li>
+                        <li><a href="{% url 'designs:classic' %}">Classic</a></li>
+                        <li><a href="{% url 'designs:minimalist' %}">Minimalist</a></li>
+                        <li><a href="{% url 'designs:bohemian' %}">Bohemian</a></li>
                     </ul>
                 </li>
                  <!--     <li><a href="community.html">Community Discussions</a></li>   -->
@@ -39,19 +40,20 @@
                 
             </ul>
         </nav>
-        
+    </div>
         <div class="profile-icon">
-            <a href="#" class="profile-link" id="profileButton">
+            <a href="{% url 'login' %}" class="profile-link" id="profileButton">
                 <i class="fas fa-user-circle"></i>
             </a>
-            <ul class="profile-dropdown" id="profileDropdown">
-                <li><a href={% url "login" %}>Login</a></li>
-                <li><a href={% url "updateprofile" %}>Manage Profile</a></li>
-                <li><a href={% url "viewprofile" %}>My Account</a></li>
+            <ul class="profile-dropdown">
+                <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="{% url 'updateprofile' %}">Manage Profile</a></li>
+                <li><a href="{% url 'viewprofile' %}">My Account</a></li>
                 <li><a href="#">Contact Us</a></li>
                 <li><a href="#">Sign Out</a></li>
             </ul>
         </div>
+        
     </header>
     {% block 'content' %}{% endblock  %}
     <footer>

@@ -209,7 +209,31 @@ header {
 
 /* Navbar */
 
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #444;
+    display: flex;
+    justify-content: center; /* Center the navbar */
+    position: relative;
+}
 
+nav ul li {
+    margin: 0 15px; /* Add some spacing between the items */
+}
+
+nav ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    background-color: #111;
+}
 
 
 /* Profile Specific Styles */
