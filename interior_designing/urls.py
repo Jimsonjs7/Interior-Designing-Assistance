@@ -24,5 +24,9 @@ urlpatterns = [
     path("", include('product_recommendation.urls')),
     path("", include('room_designer.urls')),
     path('quiz/', include('quiz.urls')),
+    path('budget_estimator/', include('budget_estimator.urls')),
+    
+
+    
    # path("sensors/", include('sensors.urls')),
 ]

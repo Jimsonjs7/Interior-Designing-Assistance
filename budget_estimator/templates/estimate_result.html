@@ -1,0 +1,54 @@
+
+{% block title %}Interior Design Budget Estimator{% endblock %}
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="text-center">Estimated Budget</h2>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <strong>Square Feet:</strong>
+                        </div>
+                        <div class="col-md-6">
+                            {{ estimate.square_feet }}
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <strong>Design Styale:</strong>
+                        </div>
+                        <div class="col-md-6">
+                            {{ estimate.design_style.name }}
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <strong>Flooring Type:</strong>
+                        </div>
+                        <div class="col-md-6">
+                            {{ estimate.flooring_type.name }}
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <strong>Total Estimate:</strong>
+                        </div>
+                        <div class="col-md-6">
+                            ${{ estimate.total_estimate|floatformat:2 }}
+                        </div>
+                    </div>
+                    <div class="text-center mt-4">
+                        <a href="{% url 'budget_estimator' %}" class="btn btn-primary">
+                            Calculate Another Estimate
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
