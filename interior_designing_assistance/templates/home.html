@@ -1,9 +1,41 @@
 {% extends "base.html" %}
 {% block 'title' %}Home{% endblock  %}
 {% block 'content' %}
+<style>
+    .feature {
+        min-width: 200px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        text-align: center;
+        transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    .feature:hover {
+        transform: scale(1.05);
+        background-color: #f0f8ff;
+    }
+
+    .box:hover {
+        transform: scale(1.05);
+    }
+    .features a {
+        text-decoration: none;
+        color: inherit;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+</style>
     <main>
         <section>
-            <h2>Welcome to InterIm Assistant</h2>
+            <h2>
+                {% if user.is_authenticated %}
+                    Welcome, {{ user.username }} to InterIm Assistant!
+                {% else %}
+                    Welcome to InterIm Assistant
+                {% endif %}
+            </h2>
             <p class="para-one">Welcome to InterIm Assistant: Your one-stop destination for transforming your 
                 living space into a haven of style and comfort. Our platform offers personalized design recommendations,
                  community discussions, and the latest trends to inspire your creativity. With our AI-powered tools, 
@@ -14,21 +46,30 @@
         </section>
     </main>
     <section class="features">
+        <a href="{% url 'ai_room_designer' %}">
         <div class="feature">
-            <h3>Sustainable Living Tips</h3>
+            <h3>AI Design Generator</h3>
             <p>This feature provides users with eco-friendly design tips and etc. </p>
         </div>
+        </a>
+        <a href="{% url 'quiz_home' %}">
         <div class="feature">
             <h3>Start Quiz</h3>
             <p>Discover your unique interior design style with our fun and insightful quiz! </p>
         </div>
+    </a>
+    <a href="{% url 'online_recommendation' %}">
         <div class="feature">
-            <h3>Expert Guidance</h3>
-            <p>Receive personalized advice from professionals to help you make the best design decisions for your space. </p>
+            <h3>AI Product Assistance</h3>
+            <p>AI Product Assistance helps you detect products from images and provides tailored recommendations, 
+                making shopping and design seamless and effortless. </p>
         </div>
+    </a>
+    <a href="#">
         <div class="feature">
-            <h3>Top Interior Designers</h3>
-            <p>Discover the finest interior designers who can bring your vision to life with their creativity, expertise, and impeccable style. </p>
+            <h3>Designs</h3>
+            <p>Explore a variety of stunning designs to inspire your creativity and transform your space effortlessly.</p>
         </div>
+    </a>
     </section>
     {% endblock  %}    

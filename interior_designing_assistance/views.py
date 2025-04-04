@@ -1,6 +1,5 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib import messages
-#from django.contrib.auth import logout
 from .models import User 
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth.decorators import login_required
@@ -32,7 +31,7 @@ def login(request):
         if user:
             request.session['user_id'] = user.id
             messages.success(request, 'Login successful')
-            return redirect('homeloggedin')
+            return redirect('home')  # Updated redirect to 'home'
         else:
             if not User.objects.filter(username=username).exists():
                 messages.error(request, "User does not exist.")

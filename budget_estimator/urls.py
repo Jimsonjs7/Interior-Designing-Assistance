@@ -1,7 +1,7 @@
 from django.urls import path
-from .views import BudgetEstimatorView, estimate_result
+from . import views
 
 urlpatterns = [
-    path('estimate/', BudgetEstimatorView.as_view(), name='budget_estimator'),
-    path('estimate/result/', estimate_result, name='estimate_result'),
+    path('', views.budget_estimator, name='budget_estimator'),
+    path('calculate-budget/', views.calculate_budget, name='calculate_budget'),
 ]

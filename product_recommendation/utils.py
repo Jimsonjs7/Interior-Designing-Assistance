@@ -5,16 +5,7 @@ from colorthief import ColorThief
 import matplotlib.pyplot as plt
 
 def detect_objects(image_path):
-    """
-    Detect objects in an image using YOLO, extract dominant colors for each detected object,
-    and generate shopping links for Amazon, Flipkart, and Google Shopping.
-
-    Args:
-        image_path (str): Path to the input image.
-
-    Returns:
-        tuple: A list of detected objects with shopping links, and the path to the annotated image.
-    """
+    
     # Load the YOLO model
     model = YOLO('yolov8n')  # YOLOv8 nano version
     model.conf = 0.25  # Set confidence threshold
@@ -35,10 +26,15 @@ def detect_objects(image_path):
             # Open the image and crop based on the bounding box
             img = Image.open(image_path)
             cropped_img = img.crop((xyxy[0], xyxy[1], xyxy[2], xyxy[3]))
+            
+            # Convert RGBA to RGB if necessary
+            if cropped_img.mode in ('RGBA', 'P'):  # 'P' mode is also common in some images
+                cropped_img = cropped_img.convert('RGB')
+            
             cropped_img_path = os.path.join(
                 os.path.dirname(image_path), f"cropped_{model.names[int(label)]}.jpg"
             )
-            cropped_img.save(cropped_img_path)
+            cropped_img.save(cropped_img_path, "JPEG")
 
             # Extract the dominant color using ColorThief
             color_thief = ColorThief(cropped_img_path)

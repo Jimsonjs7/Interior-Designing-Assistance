@@ -1,167 +1,49 @@
-
-{% block title %}Interior Design Budget Estimator{% endblock %}
-{% block content %}
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
-<style>
-    /* Your existing CSS styles */
-    .estimator-container {
-        background-color: #f8f9fa;
-        min-height: 100vh;
-        padding: 40px 20px;
-    }
-
-    .estimator-card {
-        background: white;
-        border-radius: 15px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        margin: 0 auto;
-        max-width: 800px;
-        overflow: hidden;
-    }
-
-    .estimator-header {
-        background: #2c3e50;
-        color: white;
-        padding: 25px 20px;
-        text-align: center;
-    }
-
-    .estimator-header h2 {
-        font-size: 24px;
-        margin: 0;
-        font-weight: 600;
-    }
-
-    .form-container {
-        padding: 30px;
-    }
-
-    .form-group {
-        margin-bottom: 25px;
-    }
-
-    .form-label {
-        color: #2c3e50;
-        display: block;
-        font-size: 16px;
-        font-weight: 500;
-        margin-bottom: 8px;
-    }
-
-    .form-control {
-        border: 2px solid #e9ecef;
-        border-radius: 8px;
-        font-size: 16px;
-        padding: 12px 15px;
-        transition: border-color 0.3s ease;
-        width: 100%;
-    }
-
-    .form-control:focus {
-        border-color: #3498db;
-        box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
-        outline: none;
-    }
-
-    select.form-control {
-        appearance: none;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23555' viewBox='0 0 16 16'%3E%3Cpath d='M8 10.5l-4-4h8l-4 4z'/%3E%3C/svg%3E");
-        background-repeat: no-repeat;
-        background-position: right 15px center;
-        padding-right: 40px;
-    }
-
-    .submit-btn {
-        background-color: #3498db;
-        border: none;
-        border-radius: 8px;
-        color: white;
-        cursor: pointer;
-        font-size: 16px;
-        font-weight: 500;
-        padding: 12px 30px;
-        transition: background-color 0.3s ease;
-        width: 100%;
-        max-width: 200px;
-    }
-
-    .submit-btn:hover {
-        background-color: #2980b9;
-    }
-
-    .error-message {
-        color: #e74c3c;
-        font-size: 14px;
-        margin-top: 5px;
-    }
-
-    @media (max-width: 768px) {
-        .estimator-card {
-            margin: 0 10px;
-        }
-
-        .form-container {
-            padding: 20px;
-        }
-
-        .submit-btn {
-            width: 100%;
-            max-width: none;
-        }
-    }
-</style>
+    <title>Interior Design Budget Estimator</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
-<body> 
-    <div class="estimator-container">
-        <div class="estimator-card">
-            <div class="estimator-header">
-                <h2>Interior Design Budget Estimator</h2>
-            </div>
-            <div class="form-container">
-                <form method="post">
-                    {% csrf_token %}
-                    
-                    <div class="form-group">
-                        <label for="id_square_feet" class="form-label">Square Feet</label>
-                        {{ form.square_feet }}
-                        {% if form.square_feet.errors %}
-                            <div class="error-message">{{ form.square_feet.errors }}</div>
-                        {% endif %}
-                    </div>
-    
-                    <div class="form-group">
-                        <label for="id_design_style" class="form-label">Design Style</label>
-                        {{ form.design_style }}  <!-- Use the form field directly -->
-                        <!-- Debugging: Print the queryset -->
-                        <p>Design Styles: {{ form.design_style.field.queryset }}</p>
-                        {% if form.design_style.errors %}
-                            <div class="error-message">{{ form.design_style.errors }}</div>
-                        {% endif %}
-                    </div>
-    
-                    <div class="form-group">
-                        <label for="id_flooring_type" class="form-label">Flooring Type</label>
-                        {{ form.flooring_type }}  <!-- Use the form field directly -->
-                        <!-- Debugging: Print the queryset -->
-                        <p>Flooring Types: {{ form.flooring_type.field.queryset }}</p>
-                        {% if form.flooring_type.errors %}
-                            <div class="error-message">{{ form.flooring_type.errors }}</div>
-                        {% endif %}
-                    </div>
-    
-                    <div class="text-center">
-                        <button type="submit" class="submit-btn">Calculate Estimate</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    {% endblock %}   
+<body>
+    <h1>Interior Design Budget Estimator</h1>
+    <form id="budgetForm">
+        {% csrf_token %}
+        <label for="design_style">Select Design Style:</label>
+        <select name="design_style" id="design_style">
+            <option value="modern">Modern</option>
+            <option value="classic">Classic</option>
+            <option value="minimalist">Minimalist</option>
+            <option value="bohemian">Bohemian</option>
+        </select>
+        <button type="button" id="calculateButton">Estimate Budget</button>
+    </form>
+
+    <div id="result" style="margin-top: 20px;"></div>
+
+    <script>
+        $(document).ready(function() {
+            $('#calculateButton').click(function() {
+                var designStyle = $('#design_style').val();
+                var csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
+
+                $.ajax({
+                    url: '{% url "calculate_budget" %}',
+                    type: 'POST',
+                    data: {
+                        'design_style': designStyle,
+                        'csrfmiddlewaretoken': csrfToken
+                    },
+                    success: function(response) {
+                        $('#result').html(`
+                            <p>Total estimated cost for ${response.design_style} design: ${response.total_cost} INR</p>
+                        `);
+                    },
+                    error: function(response) {
+                        $('#result').html('<p>Error calculating budget. Please try again.</p>');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
